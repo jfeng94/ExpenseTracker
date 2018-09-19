@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1AD44DE21507F91003CDE81 /* VendorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44DD21507F91003CDE81 /* VendorTableViewCell.swift */; };
+		A1AD44E221508623003CDE81 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44E121508623003CDE81 /* ReceiptTableViewController.swift */; };
+		A1AD44E4215088C6003CDE81 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44E3215088C6003CDE81 /* ItemTableViewCell.swift */; };
+		A1AD44E62151764B003CDE81 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44E52151764B003CDE81 /* Receipt.swift */; };
+		A1AD44E8215176BA003CDE81 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44E7215176BA003CDE81 /* Item.swift */; };
+		A1AD44EB21517AB0003CDE81 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44EA21517AB0003CDE81 /* Person.swift */; };
+		A1AD44F02151998C003CDE81 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44EF2151998C003CDE81 /* ItemTableViewController.swift */; };
+		A1AD44F821519F2F003CDE81 /* ItemSharerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44F721519F2F003CDE81 /* ItemSharerTableViewCell.swift */; };
+		A1AD44FA2151D355003CDE81 /* ItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44F92151D355003CDE81 /* ItemDetailsTableViewCell.swift */; };
 		A1DC36F1214E304700E34BB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC36F0214E304700E34BB6 /* AppDelegate.swift */; };
-		A1DC36F3214E304700E34BB6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC36F2214E304700E34BB6 /* FirstViewController.swift */; };
 		A1DC36F5214E304700E34BB6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC36F4214E304700E34BB6 /* SecondViewController.swift */; };
 		A1DC36F8214E304700E34BB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DC36F6214E304700E34BB6 /* Main.storyboard */; };
 		A1DC36FA214E304B00E34BB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DC36F9214E304B00E34BB6 /* Assets.xcassets */; };
@@ -27,9 +35,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A1AD44DD21507F91003CDE81 /* VendorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorTableViewCell.swift; sourceTree = "<group>"; };
+		A1AD44E121508623003CDE81 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
+		A1AD44E3215088C6003CDE81 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		A1AD44E52151764B003CDE81 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		A1AD44E7215176BA003CDE81 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A1AD44EA21517AB0003CDE81 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		A1AD44EF2151998C003CDE81 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		A1AD44F721519F2F003CDE81 /* ItemSharerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSharerTableViewCell.swift; sourceTree = "<group>"; };
+		A1AD44F92151D355003CDE81 /* ItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		A1DC36ED214E304700E34BB6 /* Expense Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC36F0214E304700E34BB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A1DC36F2214E304700E34BB6 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		A1DC36F4214E304700E34BB6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		A1DC36F7214E304700E34BB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1DC36F9214E304B00E34BB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +74,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1AD44E92151788E003CDE81 /* Receipt Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				A1AD44E52151764B003CDE81 /* Receipt.swift */,
+				A1AD44E7215176BA003CDE81 /* Item.swift */,
+				A1AD44EA21517AB0003CDE81 /* Person.swift */,
+			);
+			path = "Receipt Data Model";
+			sourceTree = "<group>";
+		};
+		A1AD44EC215187B2003CDE81 /* Receipt View */ = {
+			isa = PBXGroup;
+			children = (
+				A1AD44E121508623003CDE81 /* ReceiptTableViewController.swift */,
+				A1AD44E3215088C6003CDE81 /* ItemTableViewCell.swift */,
+				A1AD44DD21507F91003CDE81 /* VendorTableViewCell.swift */,
+				A1AD44ED215187BD003CDE81 /* Receipt View Helpers */,
+			);
+			path = "Receipt View";
+			sourceTree = "<group>";
+		};
+		A1AD44ED215187BD003CDE81 /* Receipt View Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Receipt View Helpers";
+			sourceTree = "<group>";
+		};
+		A1AD44EE2151882B003CDE81 /* Item View */ = {
+			isa = PBXGroup;
+			children = (
+				A1AD44EF2151998C003CDE81 /* ItemTableViewController.swift */,
+				A1AD44F721519F2F003CDE81 /* ItemSharerTableViewCell.swift */,
+				A1AD44F92151D355003CDE81 /* ItemDetailsTableViewCell.swift */,
+			);
+			path = "Item View";
+			sourceTree = "<group>";
+		};
 		A1DC36E4214E304700E34BB6 = {
 			isa = PBXGroup;
 			children = (
@@ -79,8 +133,10 @@
 		A1DC36EF214E304700E34BB6 /* Expense Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				A1AD44EE2151882B003CDE81 /* Item View */,
+				A1AD44EC215187B2003CDE81 /* Receipt View */,
+				A1AD44E92151788E003CDE81 /* Receipt Data Model */,
 				A1DC36F0214E304700E34BB6 /* AppDelegate.swift */,
-				A1DC36F2214E304700E34BB6 /* FirstViewController.swift */,
 				A1DC36F4214E304700E34BB6 /* SecondViewController.swift */,
 				A1DC36F6214E304700E34BB6 /* Main.storyboard */,
 				A1DC36F9214E304B00E34BB6 /* Assets.xcassets */,
@@ -200,9 +256,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1AD44E62151764B003CDE81 /* Receipt.swift in Sources */,
+				A1AD44F821519F2F003CDE81 /* ItemSharerTableViewCell.swift in Sources */,
+				A1AD44F02151998C003CDE81 /* ItemTableViewController.swift in Sources */,
 				A1DC36F5214E304700E34BB6 /* SecondViewController.swift in Sources */,
+				A1AD44DE21507F91003CDE81 /* VendorTableViewCell.swift in Sources */,
+				A1AD44E4215088C6003CDE81 /* ItemTableViewCell.swift in Sources */,
+				A1AD44E8215176BA003CDE81 /* Item.swift in Sources */,
+				A1AD44FA2151D355003CDE81 /* ItemDetailsTableViewCell.swift in Sources */,
 				A1DC36F1214E304700E34BB6 /* AppDelegate.swift in Sources */,
-				A1DC36F3214E304700E34BB6 /* FirstViewController.swift in Sources */,
+				A1AD44EB21517AB0003CDE81 /* Person.swift in Sources */,
+				A1AD44E221508623003CDE81 /* ReceiptTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
