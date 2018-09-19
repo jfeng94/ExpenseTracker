@@ -17,4 +17,17 @@ class Receipt {
         self.vendorName = vendorName;
         self.items += items;
     }
+    
+    func GetTotalCost() -> Float {
+        var sum = Float(0);
+        for item in items {
+            sum += item.GetTotalCost()
+        }
+        
+        return sum;
+    }
+    
+    func GetTotalCostAsString() -> String {
+        return String(format: "$%.02f", GetTotalCost())
+    }
 }

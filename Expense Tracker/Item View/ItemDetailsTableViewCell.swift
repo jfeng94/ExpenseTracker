@@ -9,19 +9,21 @@
 import UIKit
 
 class ItemDetailsTableViewCell: UITableViewCell {
+    @IBOutlet weak var note: UILabel!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var basePrice: UILabel!
-    @IBOutlet weak var taxRate: UILabel!
-    @IBOutlet weak var tipRate: UILabel!
+    @IBOutlet weak var priceAndNum: UILabel!
+    @IBOutlet weak var tax: UILabel!
+    @IBOutlet weak var tip: UILabel!
     @IBOutlet weak var sortingTag: UILabel!
     @IBOutlet weak var subtotal: UILabel!
     
     func configure(item: Item) {
-              name.text =                item.name;
-         basePrice.text =    "Price: " + item.GetPriceAsString()
-           taxRate.text =      "Tax: " + item.GetTaxAsString()
-           tipRate.text =      "Tip: " + item.GetTipAsString()
-        sortingTag.text =      "Tag: " + item.sortingTag
+              name.text = item.name
+              note.text = item.note
+       priceAndNum.text = item.GetPriceAsString() + " × " + String(item.numUnits)
+               tax.text = item.GetTaxAsString()
+               tip.text = item.GetTipAsString()
+        sortingTag.text = item.sortingTag
           subtotal.text = "Subtotal: " + item.GetTotalCostAsString()
     }
     

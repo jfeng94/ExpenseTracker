@@ -29,15 +29,23 @@ class ReceiptTableViewController: UITableViewController {
         let photoJerry = UIImage(named: "Jerry")
         let photoGrace = UIImage(named: "Grace")
         let photoTony  = UIImage(named: "Tony")
+        let photoAris  = UIImage(named: "Aris")
+        let photoTim   = UIImage(named: "Tim")
         
         guard let jerry = Person.init(name: "Jerry", photo: photoJerry) else { fatalError("Unable to instantiate jerry") }
         guard let grace = Person.init(name: "Grace", photo: photoGrace) else { fatalError("Unable to instantiate grace") }
         guard let tony  = Person.init(name: "Tony",  photo: photoTony)  else { fatalError("Unable to instantiate tony") }
+        guard let aris  = Person.init(name: "Aris",  photo: photoAris)  else { fatalError("Unable to instantiate aris") }
+        guard let tim   = Person.init(name: "Tim",   photo: photoTim)   else { fatalError("Unable to instantiate tim") }
         
-        let nngt = Item.init(name: "Nom Nom Green Tea", note: "+ Boba",  price: 4.45, numUnits: 2, tax: 9.25, tip: 0.0, sortingTag: "Drink", sharers: [jerry, tony])
-        let rmt  = Item.init(name: "Rose Milk Tea",     note: "+ Bobes", price: 4.45, numUnits: 1, tax: 9.25, tip: 0.0, sortingTag: "Life sustinence", sharers: [grace])
+        var items = [Item]()
+        items += [Item.init(name: "Nom Nom Green Tea", note: "Boba, half sugar, no ice",       price: 4.45, numUnits: 2, tax: 9.25, tip: 0.0, sortingTag: "Drink",           sharers: [jerry, aris])]
+        items += [Item.init(name: "Nom Nom Green Tea", note: "Hal-f sugar, no ice, big straw", price: 3.95, numUnits: 1, tax: 9.25, tip: 0.0, sortingTag: "Drink",           sharers: [tony])]
+        items += [Item.init(name: "Rose Milk Tea",     note: "Bobes",                          price: 4.45, numUnits: 1, tax: 9.25, tip: 0.0, sortingTag: "Life sustenance", sharers: [grace])]
+        items += [Item.init(name: "Popcorn Chicken",   note: "Mild",                           price: 4.95, numUnits: 2, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [jerry, grace])]
+        items += [Item.init(name: "Popcorn Chicken",   note: "Spice me a new butthole",        price: 4.95, numUnits: 1, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [tim])]
         
-        receipt = Receipt.init(vendorName: "Factory Tea Bar", items: [nngt, rmt])
+        receipt = Receipt.init(vendorName: "Factory Tea Bar", items: items)
     }
     
     
@@ -48,7 +56,7 @@ class ReceiptTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var numRows = 2 // Vendor cell, add new item cell.
+        var numRows = 3 // Vendor cell, header, add new item cell.
         
         if (receipt != nil) {
             numRows += receipt.items.count
@@ -56,26 +64,44 @@ class ReceiptTableViewController: UITableViewController {
         
         return numRows;
     }
-
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.row == 0) {
+            return 100
+        }
+        if (indexPath.row == 1) {
+            return 25
+        }
+        
+        return 60
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "vendorCell", for: indexPath) as? VendorTableViewCell {
                 cell.vendorLabel.text = "Factory Tea Bar"
                 cell.dateLabel.text = "September 17, 2018, 6:09 PM"
+                cell.total.text = "Total: " + receipt.GetTotalCostAsString()
                 return cell;
             }
         }
-        else if (receipt != nil && indexPath.row >= 1 && indexPath.row < receipt.items.count + 1) {
+        else if (indexPath.row == 1) {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell", for: indexPath) as? VendorTableViewCell {
+                return cell;
+            }
+        }
+        else if (receipt != nil && indexPath.row >= 2 && indexPath.row < receipt.items.count + 2) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell {
-                cell.itemLabel.text = receipt.items[indexPath.row - 1].name
-                cell.priceLabel.text = receipt.items[indexPath.row - 1].GetTotalCostAsString();
+                let item = receipt.items[indexPath.row - 2]
+                cell.itemLabel.text = item.name
+                cell.priceLabel.text = item.GetTotalCostAsString()
+                cell.note.text = item.note
                 return cell;
             }
         }
         else {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "newItemCell", for: indexPath) as? UITableViewCell {
-                return cell;
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "newItemCell", for: indexPath)
+            return cell;
         }
 
         // Configure the cell...
@@ -138,7 +164,7 @@ class ReceiptTableViewController: UITableViewController {
                     fatalError("The selected cell is not being displayed by the table")
                 }
                 
-                itemTableViewController.item = receipt.items[indexPath.row - 1]
+                itemTableViewController.item = receipt.items[indexPath.row - 2]
         
             case "ShowVendorDetail":
                 print("Hi")

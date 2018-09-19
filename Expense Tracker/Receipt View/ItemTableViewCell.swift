@@ -11,6 +11,7 @@ import UIKit
 class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var note: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

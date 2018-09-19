@@ -12,6 +12,7 @@ class VendorTableViewCell: UITableViewCell {
     //MARK: Properties
     @IBOutlet weak var vendorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var total: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
