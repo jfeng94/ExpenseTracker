@@ -26,17 +26,23 @@ class ReceiptTableViewController: UITableViewController {
     
     //MARK: Private Methods
     func loadSampleReceipt() {
-        let photoJerry = UIImage(named: "Jerry")
-        let photoGrace = UIImage(named: "Grace")
-        let photoTony  = UIImage(named: "Tony")
-        let photoAris  = UIImage(named: "Aris")
-        let photoTim   = UIImage(named: "Tim")
+        let jerry = PersonManager.instance.CreateNewPerson()
+        let grace = PersonManager.instance.CreateNewPerson()
+        let tony  = PersonManager.instance.CreateNewPerson()
+        let aris  = PersonManager.instance.CreateNewPerson()
+        let tim   = PersonManager.instance.CreateNewPerson()
         
-        guard let jerry = Person.init(name: "Jerry", photo: photoJerry) else { fatalError("Unable to instantiate jerry") }
-        guard let grace = Person.init(name: "Grace", photo: photoGrace) else { fatalError("Unable to instantiate grace") }
-        guard let tony  = Person.init(name: "Tony",  photo: photoTony)  else { fatalError("Unable to instantiate tony") }
-        guard let aris  = Person.init(name: "Aris",  photo: photoAris)  else { fatalError("Unable to instantiate aris") }
-        guard let tim   = Person.init(name: "Tim",   photo: photoTim)   else { fatalError("Unable to instantiate tim") }
+        PersonManager.instance.SetName(ID: jerry, name: "Jerry")
+        PersonManager.instance.SetName(ID: grace, name: "Grace")
+        PersonManager.instance.SetName(ID: tony,  name: "Tony")
+        PersonManager.instance.SetName(ID: aris,  name: "Aris")
+        PersonManager.instance.SetName(ID: tim,   name: "Tim")
+        
+        PersonManager.instance.SetPhoto(ID: jerry, photo: UIImage(named: "Jerry"))
+        PersonManager.instance.SetPhoto(ID: grace, photo: UIImage(named: "Grace"))
+        PersonManager.instance.SetPhoto(ID: tony,  photo: UIImage(named: "Tony"))
+        PersonManager.instance.SetPhoto(ID: aris,  photo: UIImage(named: "Aris"))
+        PersonManager.instance.SetPhoto(ID: tim,   photo: UIImage(named: "Tim"))
         
         var items = [Item]()
         items += [Item.init(name: "Nom Nom Green Tea", note: "Boba, half sugar, no ice",       price: 4.45, numUnits: 2, tax: 9.25, tip: 0.0, sortingTag: "Drink",           sharers: [jerry, aris])]
@@ -168,6 +174,14 @@ class ReceiptTableViewController: UITableViewController {
         
             case "ShowVendorDetail":
                 print("Hi")
+            
+            case "ShowBillSplit":
+                guard let billSplitTableViewController = segue.destination as? BillSplitTableViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                
+                billSplitTableViewController.receipt = receipt;
+            
             
             default:
                 fatalError("Unexpected Segue Identifier: \(segue.identifier)")

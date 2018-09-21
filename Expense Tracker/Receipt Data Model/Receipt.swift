@@ -30,4 +30,32 @@ class Receipt {
     func GetTotalCostAsString() -> String {
         return String(format: "$%.02f", GetTotalCost())
     }
+    
+    func GetSharerIDs() -> [String] {
+        let peopleMap = NSMutableSet()
+        var sharers = [String]()
+        for item in items {
+            for sharer in item.sharers {
+                if (!peopleMap.contains(sharer)) {
+                    peopleMap.add(sharer)
+                    sharers += [sharer]
+                }
+            }
+        }
+        
+        return sharers
+    }
+    
+    func GetSharerCost(sharer: String) -> Float {
+        var sum = Float(0)
+        for item in items {
+            sum += item.GetSharerCost(sharer: sharer)
+        }
+        
+        return sum
+    }
+    
+    func GetSharerCostAsString(sharer: String) -> String {
+        return String(format: "$%.02f", GetSharerCost(sharer: sharer))
+    }
 }

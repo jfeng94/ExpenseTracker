@@ -10,29 +10,40 @@ import UIKit
 
 class Person {
     //MARK: Properties
-    var ID: String      // UUID for person
-    var name: String    // Name of person
-    var photo: UIImage? // Profile picture
+    private var ID: String      // UUID for person
+    private var name: String    // Name of person
+    private var photo: UIImage? // Profile picture
     
     // Create a person, manually setting the UUID
-    init(ID: String, name: String, photo: UIImage?) {
+    init(manager: PersonManager, ID: String, name: String, photo: UIImage?) {
         self.ID = ID
         self.name = name
         self.photo = photo
     }
     
-    // Create a person, letting the application generate the UUID. This initializer is failable.
-    init?(name: String, photo: UIImage?) {
-        if name.isEmpty {
-            return nil;
-        }
-        
+    init() {
         self.ID = NSUUID().uuidString
-        self.name = name
-        self.photo = photo
+        self.name = ""
+        self.photo = nil
     }
     
     func GetID() -> String {
         return ID
+    }
+    
+    func GetPhoto() -> UIImage? {
+        return photo
+    }
+    
+    func GetName() -> String {
+        return name
+    }
+    
+    func SetPhoto(manager: PersonManager, photo: UIImage?) {
+        self.photo = photo
+    }
+    
+    func SetName(manager: PersonManager, name: String) {
+        self.name = name;
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1208C3A2153064400D9D39D /* BillSplitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1208C392153064400D9D39D /* BillSplitTableViewController.swift */; };
+		A1208C3D21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1208C3C21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift */; };
+		A1ACC1B621555C4D00FFE668 /* PersonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ACC1B521555C4D00FFE668 /* PersonManager.swift */; };
 		A1AD44DE21507F91003CDE81 /* VendorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44DD21507F91003CDE81 /* VendorTableViewCell.swift */; };
 		A1AD44E221508623003CDE81 /* ReceiptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44E121508623003CDE81 /* ReceiptTableViewController.swift */; };
 		A1AD44E4215088C6003CDE81 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44E3215088C6003CDE81 /* ItemTableViewCell.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A1208C392153064400D9D39D /* BillSplitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitTableViewController.swift; sourceTree = "<group>"; };
+		A1208C3C21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptVendorDetailsViewController.swift; sourceTree = "<group>"; };
+		A1ACC1B521555C4D00FFE668 /* PersonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonManager.swift; sourceTree = "<group>"; };
 		A1AD44DD21507F91003CDE81 /* VendorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorTableViewCell.swift; sourceTree = "<group>"; };
 		A1AD44E121508623003CDE81 /* ReceiptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewController.swift; sourceTree = "<group>"; };
 		A1AD44E3215088C6003CDE81 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -74,6 +80,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1208C382153062200D9D39D /* Bill Split View */ = {
+			isa = PBXGroup;
+			children = (
+				A1208C392153064400D9D39D /* BillSplitTableViewController.swift */,
+			);
+			path = "Bill Split View";
+			sourceTree = "<group>";
+		};
+		A1208C3B21541D1100D9D39D /* ReceiptVendorDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				A1208C3C21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift */,
+			);
+			path = ReceiptVendorDetailsView;
+			sourceTree = "<group>";
+		};
+		A1ACC1B321555C1400FFE668 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				A1ACC1B521555C4D00FFE668 /* PersonManager.swift */,
+			);
+			path = Singletons;
+			sourceTree = "<group>";
+		};
 		A1AD44E92151788E003CDE81 /* Receipt Data Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,8 +163,11 @@
 		A1DC36EF214E304700E34BB6 /* Expense Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				A1ACC1B321555C1400FFE668 /* Singletons */,
+				A1208C382153062200D9D39D /* Bill Split View */,
 				A1AD44EE2151882B003CDE81 /* Item View */,
 				A1AD44EC215187B2003CDE81 /* Receipt View */,
+				A1208C3B21541D1100D9D39D /* ReceiptVendorDetailsView */,
 				A1AD44E92151788E003CDE81 /* Receipt Data Model */,
 				A1DC36F0214E304700E34BB6 /* AppDelegate.swift */,
 				A1DC36F4214E304700E34BB6 /* SecondViewController.swift */,
@@ -259,11 +292,14 @@
 				A1AD44E62151764B003CDE81 /* Receipt.swift in Sources */,
 				A1AD44F821519F2F003CDE81 /* ItemSharerTableViewCell.swift in Sources */,
 				A1AD44F02151998C003CDE81 /* ItemTableViewController.swift in Sources */,
+				A1208C3D21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift in Sources */,
+				A1208C3A2153064400D9D39D /* BillSplitTableViewController.swift in Sources */,
 				A1DC36F5214E304700E34BB6 /* SecondViewController.swift in Sources */,
 				A1AD44DE21507F91003CDE81 /* VendorTableViewCell.swift in Sources */,
 				A1AD44E4215088C6003CDE81 /* ItemTableViewCell.swift in Sources */,
 				A1AD44E8215176BA003CDE81 /* Item.swift in Sources */,
 				A1AD44FA2151D355003CDE81 /* ItemDetailsTableViewCell.swift in Sources */,
+				A1ACC1B621555C4D00FFE668 /* PersonManager.swift in Sources */,
 				A1DC36F1214E304700E34BB6 /* AppDelegate.swift in Sources */,
 				A1AD44EB21517AB0003CDE81 /* Person.swift in Sources */,
 				A1AD44E221508623003CDE81 /* ReceiptTableViewController.swift in Sources */,
@@ -427,7 +463,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WK2HY86726;
 				INFOPLIST_FILE = "Expense Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -444,7 +482,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WK2HY86726;
 				INFOPLIST_FILE = "Expense Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

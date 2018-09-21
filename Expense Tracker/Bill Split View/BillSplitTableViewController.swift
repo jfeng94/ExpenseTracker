@@ -1,82 +1,56 @@
 //
-//  ItemTableViewController.swift
+//  BillSplitTableViewController.swift
 //  Expense Tracker
 //
-//  Created by Jerry Feng on 9/18/18.
+//  Created by Jerry Feng on 9/19/18.
 //  Copyright © 2018 Jerry Feng. All rights reserved.
 //
 
 import UIKit
-import os.log
 
-class ItemTableViewController: UITableViewController {
-    var item: Item!
+class BillSplitTableViewController: UITableViewController {
+    var receipt: Receipt!
+    var sharers: [String]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (receipt != nil) {
+            sharers = receipt.GetSharerIDs();
+        }
     }
 
 //    override func didReceiveMemoryWarning() {
 //        super.didReceiveMemoryWarning()
 //        // Dispose of any resources that can be recreated.
 //    }
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - Table view data source
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var numRows = 3 // Details, sharer header, new sharer
-        
-        if (item != nil) {
-            numRows += item.sharers.count
+        if (sharers != nil) {
+            return sharers.count
         }
-        
-        return numRows
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.row == 0) {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "itemDetailsCell", for: indexPath) as? ItemDetailsTableViewCell {
-                cell.configure(item: item)
-                return cell;
-            }
-        }
-        else if (indexPath.row == 1) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "sharerHeaderCell", for: indexPath)
-            return cell;
-        }
-        else if (indexPath.row > 1 && indexPath.row < item.sharers.count + 2) {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "itemSharerCell", for: indexPath) as? ItemSharerTableViewCell {
-                let sharer = item.sharers[indexPath.row - 2]
-                cell.profileImage.image = PersonManager.instance.GetPhoto(ID: sharer)
-                cell.sharerName.text    = PersonManager.instance.GetName(ID: sharer)
-                cell.sharerPrice.text   = String(format: "$%.02f", item.GetTotalCost() / Float(item.sharers.count))
-                return cell;
-            }
-        }
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "newSharerCell", for: indexPath)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "sharerCell", for: indexPath) as? ItemSharerTableViewCell {
+            cell.profileImage.image = PersonManager.instance.GetPhoto(ID: sharers[indexPath.row])
+            cell.sharerName.text    = PersonManager.instance.GetName(ID: sharers[indexPath.row])
+            cell.sharerPrice.text   = receipt.GetSharerCostAsString(sharer: sharers[indexPath.row])
             return cell;
         }
 
-
-
-        let cell = UITableViewCell()
-        return cell
+        return UITableViewCell()
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath.row == 0) {
-            return 165
-        }
-        if (indexPath.row == 1) {
-            return 25
-        }
-        
         return 60
     }
     

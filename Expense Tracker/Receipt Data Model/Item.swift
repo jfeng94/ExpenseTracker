@@ -18,7 +18,7 @@ class Item {
     var numUnits:   Int
     var tax:        Float // As a percentage. Aka 9.25% => 0.0925
     var tip:        Float // As a percentage. Aka 20% => 0.2
-    var sharers:   [Person]
+    var sharers:   [String]
     var sortingTag: String
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,7 +37,7 @@ class Item {
     }
     
     // Explicit initialization
-    init(name: String, note: String, price: Float, numUnits: Int, tax: Float, tip: Float, sortingTag: String, sharers: [Person]) {
+    init(name: String, note: String, price: Float, numUnits: Int, tax: Float, tip: Float, sortingTag: String, sharers: [String]) {
         self.name = name
         self.note = note
         self.price = price
@@ -73,14 +73,23 @@ class Item {
         return String(format: "%.02f%%", self.tip)
     }
     
+    func GetSharerCost(sharer: String) -> Float {
+        for personID in sharers {
+            if (personID == sharer) {
+                return GetTotalCost() / Float(sharers.count)
+            }
+        }
+        return 0
+    }
+    
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Sharer methods
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    func addSharer(sharer: Person) {
+    func addSharer(sharer: String) {
         var canAdd = true;
         
         for i in 0...sharers.count {
-            if (sharers[i].GetID() == sharer.GetID()) {
+            if (sharers[i] == sharer) {
                 canAdd = false;
                 break;
             }
@@ -91,10 +100,10 @@ class Item {
         }
     }
     
-    func removeSharer(sharer: Person) {
+    func removeSharer(sharer: String) {
         var toRemove = -1;
         for i in 0...sharers.count {
-            if (sharers[i].GetID() == sharer.GetID()) {
+            if (sharers[i] == sharer) {
                 toRemove = i
             }
         }
