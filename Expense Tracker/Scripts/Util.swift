@@ -17,8 +17,11 @@ class Util {
         return String(format: "%.02f%%", f)
     }
     
+    static func Format2Dec(_ f: Float) -> String {
+        return String(format: "%.02f", f)
+    }
+    
     static func FormatDate(_ date: Date) -> String {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM d, YYYY hh:mm a"
         return dateFormatter.string(from: date)

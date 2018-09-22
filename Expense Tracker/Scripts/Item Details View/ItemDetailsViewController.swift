@@ -17,10 +17,16 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tip: UITextField!
     @IBOutlet weak var tag: UITextField!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     var item: Item!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ReceiptVendorDetailsViewController.viewTapped(gestureRecognizer:)))
+        
+        view.addGestureRecognizer(tapGesture)
         
         name.delegate = self
         notes.delegate = self
@@ -30,24 +36,16 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
         tip.delegate = self
         tag.delegate = self
         
-        price.keyboardType = .numberPad
-        num.keyboardType   = .numberPad
-        tax.keyboardType   = .numberPad
-        tip.keyboardType   = .numberPad
+//        price.keyboardType = .numberPad
+//        num.keyboardType   = .numberPad
+//        tax.keyboardType   = .numberPad
+//        tip.keyboardType   = .numberPad
         
-        if (item != nil) {
-            name.text  = item.name
-            notes.text = item.note
-            price.text = String(item.price)
-            num.text   = String(item.numUnits)
-            tax.text   = String(item.tax)
-            tip.text   = String(item.tip)
-            tag.text   = item.sortingTag
+        if (saveButton != nil) {
+            saveButton.isEnabled = false
         }
-        else {
-            fatalError("No item!")
-        }
-        // Do any additional setup after loading the view.
+        updateFields()
+        updateSaveButtonState()
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,64 +58,89 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let s = name.text {
-            item.name = s
+        updateItem()
+        updateFields()
+        updateSaveButtonState()
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true);
+    }
+    
+    private func updateSaveButtonState() {
+        if (saveButton != nil) {
+            let text = name.text ?? ""
+            saveButton.isEnabled = !text.isEmpty
         }
-        
-        if let s = notes.text {
-            item.note = s
+    }
+
+    private func updateFields() {
+        if (item != nil) {
+            name.text  = item.name
+            notes.text = item.note
+            price.text = Util.Format2Dec(item.price)
+            num.text   = String(item.numUnits)
+            tax.text   = Util.Format2Dec(item.tax)
+            tip.text   = Util.Format2Dec(item.tip)
+            tag.text   = item.sortingTag
         }
-        
-        if let s = price.text {
-            if let p = Float(s) {
-                item.price = p
+        else {
+            fatalError("No item!")
+        }
+    }
+
+    private func updateItem() {
+        if (item != nil) {
+            if let s = name.text {
+                item.name = s
             }
-            else if (s.isEmpty) {
-                item.price = Float(0);
+            
+            if let s = notes.text {
+                item.note = s
+            }
+            
+            if let s = price.text {
+                if let p = Float(s) {
+                    item.price = p
+                }
+                else if (s.isEmpty) {
+                    item.price = Float(0);
+                }
+            }
+            
+            if let s = num.text {
+                if let n = Int(s) {
+                    item.numUnits = n
+                }
+                else if (s.isEmpty) {
+                    item.numUnits = Int(0);
+                }
+            }
+            
+            if let s = tax.text {
+                if let t = Float(s) {
+                    item.tax = t
+                }
+                else if (s.isEmpty) {
+                    item.tax = Float(0);
+                }
+            }
+            
+            if let s = tip.text {
+                if let t = Float(s) {
+                    item.tip = t
+                }
+                else if (s.isEmpty) {
+                    item.tip = Float(0);
+                }
+            }
+            
+            if let s = tag.text {
+                item.sortingTag = s
             }
         }
-        
-        if let s = num.text {
-            if let n = Int(s) {
-                item.numUnits = n
-            }
-            else if (s.isEmpty) {
-                item.numUnits = Int(0);
-            }
-        }
-        
-        if let s = tax.text {
-            if let t = Float(s) {
-                item.tax = t
-            }
-            else if (s.isEmpty) {
-                item.tax = Float(0);
-            }
-        }
-        
-        if let s = tip.text {
-            if let t = Float(s) {
-                item.tip = t
-            }
-            else if (s.isEmpty) {
-                item.tip = Float(0);
-            }
-        }
-        
-        if let s = tag.text {
-            item.sortingTag = s
-        }
-        
-        name.text  = item.name
-        notes.text = item.note
-        price.text = String(item.price)
-        num.text   = String(item.numUnits)
-        tax.text   = String(item.tax)
-        tip.text   = String(item.tip)
-        tag.text   = item.sortingTag
-        
     }
     
     /*

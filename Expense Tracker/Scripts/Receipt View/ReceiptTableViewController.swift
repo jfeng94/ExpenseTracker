@@ -18,6 +18,12 @@ class ReceiptTableViewController: UITableViewController {
         loadSampleReceipt()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
 //    override func didReceiveMemoryWarning() {
 //        super.didReceiveMemoryWarning()
 //        // Dispose of any resources that can be recreated.
@@ -151,6 +157,14 @@ class ReceiptTableViewController: UITableViewController {
     */
     
     
+    @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ItemDetailsViewController, let item = sourceViewController.item {
+            let newIndexPath = IndexPath(row: receipt.items.count + 2, section: 0)
+            receipt.items.append(item)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -194,6 +208,19 @@ class ReceiptTableViewController: UITableViewController {
                 
                 billSplitTableViewController.receipt = receipt;
             
+        case "newItem":
+//            guard let navigationController = segue.destination as? UINavigationController else {
+//                fatalError("Unexpected destination: \(segue.destination)")
+//            }
+//
+//            guard let itemDetailsViewController = navigationController.viewControllers[0] as? ItemDetailsViewController else {
+//                fatalError("Unexpected destination: \(navigationController.viewControllers[0])")
+//            }
+            guard let itemDetailsViewController = segue.destination as? ItemDetailsViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            itemDetailsViewController.item = Item.init(name: "")
             
             default:
                 fatalError("Unexpected Segue Identifier: \(segue.identifier)")

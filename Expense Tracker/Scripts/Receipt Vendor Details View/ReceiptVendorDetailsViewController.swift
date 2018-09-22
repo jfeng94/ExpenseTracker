@@ -94,14 +94,14 @@ class ReceiptVendorDetailsViewController: UIViewController, UITextFieldDelegate 
             date.text = Util.FormatDate(receipt.date)
             
             if let globalTip = receipt.GetGlobalTip() {
-                tip.text = String(globalTip);
+                tip.text = Util.Format2Dec(globalTip);
             }
             else {
                 tip.text = "mixed"
             }
             
             if let globalTax = receipt.GetGlobalTax() {
-                tax.text = String(globalTax);
+                tax.text = Util.Format2Dec(globalTax);
             }
             else {
                 tax.text = "mixed"
