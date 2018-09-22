@@ -89,14 +89,31 @@ class BillSplitTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+        case "Breakdown":
+            guard let billSplitBreakdownTableViewController = segue.destination as? BillSplitBreakdownTableViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedItemCell = sender as? ItemSharerTableViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            billSplitBreakdownTableViewController.receipt = receipt
+            billSplitBreakdownTableViewController.sharer  = sharers[indexPath.row]
+//            BillSplitBreakdownTableViewController.title = PersonManager.instance.GetName(ID: sharers[indexPath.row])
+            
+        default:
+            fatalError("Unexpected Segue Identifier: \(segue.identifier)")
+        }
     }
-    */
-
 }

@@ -34,7 +34,7 @@ class Receipt {
     }
     
     func GetTotalCostAsString() -> String {
-        return String(format: "$%.02f", GetTotalCost())
+        return Util.GetValueAsCurrencyString(GetTotalCost())
     }
     
     ////////////////////////
@@ -65,7 +65,7 @@ class Receipt {
     }
     
     func GetSharerCostAsString(sharer: String) -> String {
-        return String(format: "$%.02f", GetSharerCost(sharer: sharer))
+        return Util.GetValueAsCurrencyString(GetSharerCost(sharer: sharer))
     }
     
     ////////////////////////

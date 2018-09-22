@@ -16,13 +16,6 @@ class ItemTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            let item = 
-            tableView.reloadRows(at: [selectedIndexPath], with: .none)
-        }
-    }
-
 //    override func didReceiveMemoryWarning() {
 //        super.didReceiveMemoryWarning()
 //        // Dispose of any resources that can be recreated.

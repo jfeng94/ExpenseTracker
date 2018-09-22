@@ -85,8 +85,8 @@ class ReceiptTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "vendorCell", for: indexPath) as? VendorTableViewCell {
-                cell.vendorLabel.text = "Factory Tea Bar"
-                cell.dateLabel.text = "September 17, 2018, 6:09 PM"
+                cell.vendorLabel.text = receipt.vendorName
+                cell.dateLabel.text = Util.FormatDate(receipt.date)
                 cell.total.text = "Total: " + receipt.GetTotalCostAsString()
                 return cell;
             }

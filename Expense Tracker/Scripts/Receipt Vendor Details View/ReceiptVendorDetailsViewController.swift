@@ -91,9 +91,7 @@ class ReceiptVendorDetailsViewController: UIViewController, UITextFieldDelegate 
         if (receipt != nil) {
             vendorName.text = receipt.vendorName
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMMM d, YYYY hh:mm a"
-            date.text = dateFormatter.string(from: datePicker.date)
+            date.text = Util.FormatDate(receipt.date)
             
             if let globalTip = receipt.GetGlobalTip() {
                 tip.text = String(globalTip);

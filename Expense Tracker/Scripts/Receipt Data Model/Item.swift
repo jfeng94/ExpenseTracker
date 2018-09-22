@@ -57,20 +57,20 @@ class Item {
     }
     
     func GetPriceAsString() -> String {
-        return String(format: "$%.02f", self.price)
+        return Util.GetValueAsCurrencyString(self.price)
     }
     
     func GetTotalCostAsString() -> String {
-        return String(format: "$%.02f", GetTotalCost())
+        return Util.GetValueAsCurrencyString(GetTotalCost())
     }
     
     
     func GetTaxAsString() -> String {
-        return String(format: "%.02f%%", self.tax)
+        return Util.GetValueAsPercentString(self.tax)
     }
     
     func GetTipAsString() -> String {
-        return String(format: "%.02f%%", self.tip)
+        return Util.GetValueAsPercentString(self.tip)
     }
     
     func GetSharerCost(sharer: String) -> Float {

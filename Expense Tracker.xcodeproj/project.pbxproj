@@ -20,6 +20,8 @@
 		A1AD44F821519F2F003CDE81 /* ItemSharerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44F721519F2F003CDE81 /* ItemSharerTableViewCell.swift */; };
 		A1AD44FA2151D355003CDE81 /* ItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44F92151D355003CDE81 /* ItemDetailsTableViewCell.swift */; };
 		A1CF187A2155B5B9003A641E /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */; };
+		A1CF187E2155D653003A641E /* BillSplitBreakdownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */; };
+		A1CF18802155D9AD003A641E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF187F2155D9AD003A641E /* Util.swift */; };
 		A1DC36F1214E304700E34BB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC36F0214E304700E34BB6 /* AppDelegate.swift */; };
 		A1DC36F5214E304700E34BB6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC36F4214E304700E34BB6 /* SecondViewController.swift */; };
 		A1DC36F8214E304700E34BB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DC36F6214E304700E34BB6 /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		A1AD44F721519F2F003CDE81 /* ItemSharerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSharerTableViewCell.swift; sourceTree = "<group>"; };
 		A1AD44F92151D355003CDE81 /* ItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
+		A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitBreakdownTableViewController.swift; sourceTree = "<group>"; };
+		A1CF187F2155D9AD003A641E /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Scripts/Util.swift; sourceTree = "<group>"; };
 		A1DC36ED214E304700E34BB6 /* Expense Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC36F0214E304700E34BB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DC36F4214E304700E34BB6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 		A1CF187B2155B5CF003A641E /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				A1CF187C2155D600003A641E /* Bill Split Breakdown View */,
 				A1ACC1B321555C1400FFE668 /* Singletons */,
 				A1208C382153062200D9D39D /* Bill Split View */,
 				A1AD44EE2151882B003CDE81 /* Item View */,
@@ -164,6 +169,14 @@
 				A1AD44E92151788E003CDE81 /* Receipt Data Model */,
 			);
 			path = Scripts;
+			sourceTree = "<group>";
+		};
+		A1CF187C2155D600003A641E /* Bill Split Breakdown View */ = {
+			isa = PBXGroup;
+			children = (
+				A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */,
+			);
+			path = "Bill Split Breakdown View";
 			sourceTree = "<group>";
 		};
 		A1DC36E4214E304700E34BB6 = {
@@ -194,6 +207,7 @@
 				A1DC36F9214E304B00E34BB6 /* Assets.xcassets */,
 				A1DC36FB214E304B00E34BB6 /* LaunchScreen.storyboard */,
 				A1DC36FE214E304B00E34BB6 /* Info.plist */,
+				A1CF187F2155D9AD003A641E /* Util.swift */,
 			);
 			path = "Expense Tracker";
 			sourceTree = "<group>";
@@ -317,7 +331,9 @@
 				A1DC36F5214E304700E34BB6 /* SecondViewController.swift in Sources */,
 				A1AD44DE21507F91003CDE81 /* VendorTableViewCell.swift in Sources */,
 				A1AD44E4215088C6003CDE81 /* ItemTableViewCell.swift in Sources */,
+				A1CF187E2155D653003A641E /* BillSplitBreakdownTableViewController.swift in Sources */,
 				A1AD44E8215176BA003CDE81 /* Item.swift in Sources */,
+				A1CF18802155D9AD003A641E /* Util.swift in Sources */,
 				A1AD44FA2151D355003CDE81 /* ItemDetailsTableViewCell.swift in Sources */,
 				A1ACC1B621555C4D00FFE668 /* PersonManager.swift in Sources */,
 				A1DC36F1214E304700E34BB6 /* AppDelegate.swift in Sources */,
