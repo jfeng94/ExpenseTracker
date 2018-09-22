@@ -51,7 +51,7 @@ class ReceiptTableViewController: UITableViewController {
         items += [Item.init(name: "Popcorn Chicken",   note: "Mild",                           price: 4.95, numUnits: 2, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [jerry, grace])]
         items += [Item.init(name: "Popcorn Chicken",   note: "Spice me a new butthole",        price: 4.95, numUnits: 1, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [tim])]
         
-        receipt = Receipt.init(vendorName: "Factory Tea Bar", items: items)
+        receipt = Receipt.init(vendorName: "Factory Tea Bar", items: items, date : Date.init())
     }
     
     
@@ -173,7 +173,19 @@ class ReceiptTableViewController: UITableViewController {
                 itemTableViewController.item = receipt.items[indexPath.row - 2]
         
             case "ShowVendorDetail":
-                print("Hi")
+                guard let receiptVendorDetailsViewController = segue.destination as? ReceiptVendorDetailsViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                
+                guard let selectedItemCell = sender as? VendorTableViewCell else {
+                    fatalError("Unexpected sender: \(sender)")
+                }
+                
+                guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
+                    fatalError("The selected cell is not being displayed by the table")
+                }
+                
+                receiptVendorDetailsViewController.receipt = receipt
             
             case "ShowBillSplit":
                 guard let billSplitTableViewController = segue.destination as? BillSplitTableViewController else {

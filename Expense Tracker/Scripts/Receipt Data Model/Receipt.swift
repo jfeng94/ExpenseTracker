@@ -12,12 +12,18 @@ class Receipt {
     //MARK: Properties
     var vendorName : String
     var items : [Item] = []
+    var date : Date
     
-    init(vendorName: String, items: [Item]) {
+    init(vendorName: String, items: [Item], date: Date) {
         self.vendorName = vendorName;
         self.items += items;
+        self.date = date;
     }
     
+    
+    ////////////////////////
+    // MARK: Cost stats
+    ////////////////////////
     func GetTotalCost() -> Float {
         var sum = Float(0);
         for item in items {
@@ -31,6 +37,9 @@ class Receipt {
         return String(format: "$%.02f", GetTotalCost())
     }
     
+    ////////////////////////
+    // MARK: Sharer stats
+    ////////////////////////
     func GetSharerIDs() -> [String] {
         let peopleMap = NSMutableSet()
         var sharers = [String]()
@@ -57,5 +66,52 @@ class Receipt {
     
     func GetSharerCostAsString(sharer: String) -> String {
         return String(format: "$%.02f", GetSharerCost(sharer: sharer))
+    }
+    
+    ////////////////////////
+    // MARK: Tax methods
+    ////////////////////////
+    func GetGlobalTax() -> Float? {
+        if (items.count > 0) {
+            let tax = items[0].tax
+            for i in 1...(items.count - 1) {
+                if tax != items[i].tax {
+                    return nil
+                }
+            }
+            
+            return tax
+        }
+        return 0
+    }
+    
+    func SetGlobalTax(_ tax: Float) {
+        for item in items {
+            item.tax = tax
+        }
+    }
+    
+    
+    ////////////////////////
+    // MARK: Tip methods
+    ////////////////////////
+    func GetGlobalTip() -> Float? {
+        if (items.count > 0) {
+            let tip = items[0].tip
+            for i in 1...(items.count - 1) {
+                if tip != items[i].tip {
+                    return nil
+                }
+            }
+            
+            return tip
+        }
+        return 0
+    }
+    
+    func SetGlobalTip(_ tip: Float) {
+        for item in items {
+            item.tip = tip
+        }
     }
 }

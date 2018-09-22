@@ -15,6 +15,13 @@ class ItemTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            let item = 
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+        }
+    }
 
 //    override func didReceiveMemoryWarning() {
 //        super.didReceiveMemoryWarning()
@@ -115,14 +122,30 @@ class ItemTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+        case "EditItemDetails":
+            guard let itemDetailsViewController = segue.destination as? ItemDetailsViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedItemCell = sender as? ItemDetailsTableViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            
+//            guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
+//                fatalError("The selected cell is not being displayed by the table")
+//            }
+            
+            itemDetailsViewController.item = item
+            
+        case "AddNewSharer":
+            print("Hi")
+            
+        default:
+            fatalError("Unexpected Segue Identifier: \(segue.identifier)")
+        }
     }
-    */
-
 }

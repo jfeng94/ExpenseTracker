@@ -19,6 +19,7 @@
 		A1AD44F02151998C003CDE81 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44EF2151998C003CDE81 /* ItemTableViewController.swift */; };
 		A1AD44F821519F2F003CDE81 /* ItemSharerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44F721519F2F003CDE81 /* ItemSharerTableViewCell.swift */; };
 		A1AD44FA2151D355003CDE81 /* ItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44F92151D355003CDE81 /* ItemDetailsTableViewCell.swift */; };
+		A1CF187A2155B5B9003A641E /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */; };
 		A1DC36F1214E304700E34BB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC36F0214E304700E34BB6 /* AppDelegate.swift */; };
 		A1DC36F5214E304700E34BB6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC36F4214E304700E34BB6 /* SecondViewController.swift */; };
 		A1DC36F8214E304700E34BB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DC36F6214E304700E34BB6 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		A1AD44EF2151998C003CDE81 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		A1AD44F721519F2F003CDE81 /* ItemSharerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSharerTableViewCell.swift; sourceTree = "<group>"; };
 		A1AD44F92151D355003CDE81 /* ItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		A1DC36ED214E304700E34BB6 /* Expense Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC36F0214E304700E34BB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DC36F4214E304700E34BB6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -88,12 +90,12 @@
 			path = "Bill Split View";
 			sourceTree = "<group>";
 		};
-		A1208C3B21541D1100D9D39D /* ReceiptVendorDetailsView */ = {
+		A1208C3B21541D1100D9D39D /* Receipt Vendor Details View */ = {
 			isa = PBXGroup;
 			children = (
 				A1208C3C21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift */,
 			);
-			path = ReceiptVendorDetailsView;
+			path = "Receipt Vendor Details View";
 			sourceTree = "<group>";
 		};
 		A1ACC1B321555C1400FFE668 /* Singletons */ = {
@@ -142,6 +144,28 @@
 			path = "Item View";
 			sourceTree = "<group>";
 		};
+		A1CF18782155B5A4003A641E /* Item Details View */ = {
+			isa = PBXGroup;
+			children = (
+				A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */,
+			);
+			path = "Item Details View";
+			sourceTree = "<group>";
+		};
+		A1CF187B2155B5CF003A641E /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				A1ACC1B321555C1400FFE668 /* Singletons */,
+				A1208C382153062200D9D39D /* Bill Split View */,
+				A1AD44EE2151882B003CDE81 /* Item View */,
+				A1CF18782155B5A4003A641E /* Item Details View */,
+				A1AD44EC215187B2003CDE81 /* Receipt View */,
+				A1208C3B21541D1100D9D39D /* Receipt Vendor Details View */,
+				A1AD44E92151788E003CDE81 /* Receipt Data Model */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		A1DC36E4214E304700E34BB6 = {
 			isa = PBXGroup;
 			children = (
@@ -163,12 +187,7 @@
 		A1DC36EF214E304700E34BB6 /* Expense Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACC1B321555C1400FFE668 /* Singletons */,
-				A1208C382153062200D9D39D /* Bill Split View */,
-				A1AD44EE2151882B003CDE81 /* Item View */,
-				A1AD44EC215187B2003CDE81 /* Receipt View */,
-				A1208C3B21541D1100D9D39D /* ReceiptVendorDetailsView */,
-				A1AD44E92151788E003CDE81 /* Receipt Data Model */,
+				A1CF187B2155B5CF003A641E /* Scripts */,
 				A1DC36F0214E304700E34BB6 /* AppDelegate.swift */,
 				A1DC36F4214E304700E34BB6 /* SecondViewController.swift */,
 				A1DC36F6214E304700E34BB6 /* Main.storyboard */,
@@ -291,6 +310,7 @@
 			files = (
 				A1AD44E62151764B003CDE81 /* Receipt.swift in Sources */,
 				A1AD44F821519F2F003CDE81 /* ItemSharerTableViewCell.swift in Sources */,
+				A1CF187A2155B5B9003A641E /* ItemDetailsViewController.swift in Sources */,
 				A1AD44F02151998C003CDE81 /* ItemTableViewController.swift in Sources */,
 				A1208C3D21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift in Sources */,
 				A1208C3A2153064400D9D39D /* BillSplitTableViewController.swift in Sources */,
