@@ -69,6 +69,13 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true);
     }
     
+    // MARK: Actions
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    
+    // MARK: Private methods
     private func updateSaveButtonState() {
         if (saveButton != nil) {
             let text = name.text ?? ""

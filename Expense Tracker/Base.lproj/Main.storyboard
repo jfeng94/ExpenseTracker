@@ -1014,7 +1014,11 @@
                         <viewLayoutGuide key="safeArea" id="pm8-91-3Zt"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Item" id="mkQ-fz-bLF">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fd1-kz-FJm"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fd1-kz-FJm">
+                            <connections>
+                                <action selector="cancel:" destination="FNb-eq-6SE" id="CFC-R2-Ufp"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="6K6-kn-gvt">
                             <connections>
                                 <segue destination="0K3-Ud-x1B" kind="unwind" unwindAction="unwindToItemListWithSender:" id="YEg-w6-Ymo"/>
