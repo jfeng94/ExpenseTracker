@@ -68,6 +68,20 @@ class Receipt {
         return Util.GetValueAsCurrencyString(GetSharerCost(sharer: sharer))
     }
     
+    func GetUnaccountedCost() -> Float {
+        var sum = Float(0)
+        for item in items {
+            sum += item.GetUnaccountedCost()
+        }
+        
+        return sum
+        
+    }
+    
+    func GetUnaccountedCostAsString() -> String {
+        return Util.GetValueAsCurrencyString(GetUnaccountedCost())
+    }
+    
     ////////////////////////
     // MARK: Tax methods
     ////////////////////////

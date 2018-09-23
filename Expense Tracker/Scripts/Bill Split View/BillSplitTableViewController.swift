@@ -34,16 +34,35 @@ class BillSplitTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (sharers != nil) {
-            return sharers.count
+            if (receipt.GetUnaccountedCost() != Float(0)) {
+                return sharers.count + 1
+            }
+            else {
+                return sharers.count
+            }
         }
-        return 0
+        
+        if (receipt.GetUnaccountedCost() != Float(0)) {
+            return 1
+        }
+        else {
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "sharerCell", for: indexPath) as? ItemSharerTableViewCell {
-            cell.profileImage.image = PersonManager.instance.GetPhoto(ID: sharers[indexPath.row])
-            cell.sharerName.text    = PersonManager.instance.GetName(ID: sharers[indexPath.row])
-            cell.sharerPrice.text   = receipt.GetSharerCostAsString(sharer: sharers[indexPath.row])
+            
+            if (indexPath.row < sharers.count) {
+                cell.profileImage.image = PersonManager.instance.GetPhoto(ID: sharers[indexPath.row])
+                cell.sharerName.text    = PersonManager.instance.GetName(ID: sharers[indexPath.row])
+                cell.sharerPrice.text   = receipt.GetSharerCostAsString(sharer: sharers[indexPath.row])
+            }
+            else {
+                cell.profileImage.image = PersonManager.instance.GetVoidPhoto()
+                cell.sharerName.text    = PersonManager.instance.GetVoidName()
+                cell.sharerPrice.text   = receipt.GetUnaccountedCostAsString()
+            }
             return cell;
         }
 
@@ -109,7 +128,12 @@ class BillSplitTableViewController: UITableViewController {
             }
             
             billSplitBreakdownTableViewController.receipt = receipt
-            billSplitBreakdownTableViewController.sharer  = sharers[indexPath.row]
+            if (indexPath.row < sharers.count) {
+                billSplitBreakdownTableViewController.sharer  = sharers[indexPath.row]
+            }
+            else {
+                billSplitBreakdownTableViewController.sharer  = nil
+            }
 //            BillSplitBreakdownTableViewController.title = PersonManager.instance.GetName(ID: sharers[indexPath.row])
             
         default:

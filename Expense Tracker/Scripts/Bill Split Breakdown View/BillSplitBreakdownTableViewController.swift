@@ -16,10 +16,20 @@ class BillSplitBreakdownTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        items = [Item]()
-        for item in receipt.items {
-            if (item.GetSharerCost(sharer: sharer) != Float(0)) {
-                items! += [item]
+        if (sharer != nil) {
+            items = [Item]()
+            for item in receipt.items {
+                if (item.GetSharerCost(sharer: sharer) != Float(0)) {
+                    items! += [item]
+                }
+            }
+        }
+        else {
+            items = [Item]()
+            for item in receipt.items {
+                if (item.GetUnaccountedCost() != Float(0)) {
+                    items! += [item]
+                }
             }
         }
         
@@ -30,8 +40,8 @@ class BillSplitBreakdownTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -43,13 +53,20 @@ class BillSplitBreakdownTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell {
-            let item  = items[indexPath.row]
-            let share = Util.GetValueAsCurrencyString(item.GetSharerCost(sharer: sharer))
-            
+            let item = items[indexPath.row]
             
             cell.itemLabel.text  = item.name
             cell.note.text       = item.note
-            cell.priceLabel.text = share
+            
+            if (sharer != nil) {
+                let share = Util.GetValueAsCurrencyString(item.GetSharerCost(sharer: sharer))
+                cell.priceLabel.text = share
+            }
+            else {
+                let share = Util.GetValueAsCurrencyString(item.GetUnaccountedCost())
+                cell.priceLabel.text = share
+            }
+            
             return cell;
         }
     

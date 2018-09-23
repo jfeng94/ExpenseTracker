@@ -46,6 +46,10 @@ class PersonManager {
         
         return nil
     }
+
+    func GetVoidPhoto() -> UIImage? {
+        return UIImage(named: "Void User")
+    }
     
     func GetName(ID: String) -> String {
         let person = GetPerson(ID: ID)
@@ -54,6 +58,10 @@ class PersonManager {
         }
         
         return ""
+    }
+    
+    func GetVoidName() -> String {
+        return "Lost to the void..."
     }
     
     func SetPhoto(ID: String, photo: UIImage?) {
