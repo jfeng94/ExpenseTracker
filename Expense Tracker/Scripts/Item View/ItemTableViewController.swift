@@ -152,12 +152,25 @@ class ItemTableViewController: UITableViewController {
             
             itemDetailsViewController.item = item
             
-        case "AddNewSharer":
-            guard let nextController = segue.destination as? PersonSelectionViewController else {
+        case "addNewSharer":
+            guard let nextController = segue.destination as? EditSharerViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
+
+            nextController.isNewSharer = true
+//            guard let nextController = segue.destination as? PersonSelectionViewController else {
+//                fatalError("Unexpected destination: \(segue.destination)")
+//            }
+//
+//            nextController.excludedPeople = item.sharers
+        
+        case "editSharer":
+            guard let nextController = segue.destination as? EditSharerViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+
+            nextController.isNewSharer = false
             
-            nextController.excludedPeople = item.sharers
             
         default:
             fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")

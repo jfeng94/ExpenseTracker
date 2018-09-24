@@ -615,6 +615,7 @@
                                     <outlet property="profileImage" destination="DRS-Zc-QlC" id="MiV-SW-9yA"/>
                                     <outlet property="sharerName" destination="3fe-KT-C2e" id="yUF-8y-4fJ"/>
                                     <outlet property="sharerPrice" destination="csJ-Ag-36l" id="V3O-ea-WZC"/>
+                                    <segue destination="uR6-nd-WFQ" kind="show" identifier="editSharer" id="gis-8F-xeL"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newSharerCell" textLabel="czV-5q-xnK" rowHeight="45" style="IBUITableViewCellStyleDefault" id="qDA-Yd-shs" userLabel="Add New Sharer Cell">
@@ -634,7 +635,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="pXc-yw-h44" kind="show" identifier="AddNewSharer" id="dKT-VE-T9e"/>
+                                    <segue destination="uR6-nd-WFQ" kind="presentation" identifier="addNewSharer" id="oqZ-IF-vkn"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -648,6 +649,62 @@
             </objects>
             <point key="canvasLocation" x="2060.625" y="-429.92957746478874"/>
         </scene>
+        <!--Edit Sharer View Controller-->
+        <scene sceneID="eoY-Xw-lRy">
+            <objects>
+                <viewController id="uR6-nd-WFQ" customClass="EditSharerViewController" customModule="Expense_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hu4-jR-ABq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ptc-PX-uoP">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="wU2-bU-5S2"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPl-56-w5r">
+                                <rect key="frame" x="16" y="72" width="288" height="496"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiO-FK-xj6">
+                                        <rect key="frame" x="90" y="40" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Jerry" translatesAutoresizingMaskIntoConstraints="NO" id="P0u-Mw-R52">
+                                        <rect key="frame" x="8" y="8" width="75" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="FFA-5v-vm6"/>
+                                            <constraint firstAttribute="height" constant="40" id="JdT-K8-7nM"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KPl-56-w5r" firstAttribute="leading" secondItem="ili-Gs-KWZ" secondAttribute="leading" constant="16" id="JVG-Wx-Sq8"/>
+                            <constraint firstItem="Ptc-PX-uoP" firstAttribute="leading" secondItem="ili-Gs-KWZ" secondAttribute="leading" id="X0K-wx-L8v"/>
+                            <constraint firstItem="ili-Gs-KWZ" firstAttribute="trailing" secondItem="KPl-56-w5r" secondAttribute="trailing" constant="16" id="j2s-0T-4L2"/>
+                            <constraint firstItem="KPl-56-w5r" firstAttribute="top" secondItem="Ptc-PX-uoP" secondAttribute="bottom" constant="8" id="q6l-6T-Mx8"/>
+                            <constraint firstItem="Ptc-PX-uoP" firstAttribute="trailing" secondItem="ili-Gs-KWZ" secondAttribute="trailing" id="xQw-gJ-vxk"/>
+                            <constraint firstItem="Ptc-PX-uoP" firstAttribute="top" secondItem="ili-Gs-KWZ" secondAttribute="top" id="z6b-P1-sRt"/>
+                            <constraint firstItem="ili-Gs-KWZ" firstAttribute="bottom" secondItem="KPl-56-w5r" secondAttribute="bottom" id="zaT-nu-E8t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ili-Gs-KWZ"/>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="navBar" destination="Ptc-PX-uoP" id="IMH-UH-6mr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uEU-5y-zOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2906.25" y="-430.98591549295776"/>
+        </scene>
         <!--Person Selection View Controller-->
         <scene sceneID="gJb-zI-Ux0">
             <objects>
@@ -657,7 +714,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j4Q-vk-TKW">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personCell" rowHeight="60" id="LYe-DK-nZX" userLabel="Person Cell" customClass="PersonTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
@@ -712,7 +769,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4JL-Nq-lwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3701" y="-430"/>
+            <point key="canvasLocation" x="3705" y="-430"/>
         </scene>
         <!--Item Details Controller-->
         <scene sceneID="aTC-yD-jEu">
@@ -981,6 +1038,7 @@
         <image name="home" width="23" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="oqZ-IF-vkn"/>
         <segue reference="YzR-Af-QNa"/>
     </inferredMetricsTieBreakers>
 </document>
