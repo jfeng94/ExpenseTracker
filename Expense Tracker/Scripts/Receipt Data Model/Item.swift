@@ -97,7 +97,7 @@ class Item {
     func addSharer(sharer: String) {
         var canAdd = true;
         
-        for i in 0...sharers.count {
+        for i in 0...sharers.count - 1 {
             if (sharers[i] == sharer) {
                 canAdd = false;
                 break;
@@ -111,7 +111,7 @@ class Item {
     
     func removeSharer(sharer: String) {
         var toRemove = -1;
-        for i in 0...sharers.count {
+        for i in 0...sharers.count - 1 {
             if (sharers[i] == sharer) {
                 toRemove = i
             }

@@ -152,4 +152,8 @@ class ItemTableViewController: UITableViewController {
             fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
         }
     }
+    
+    func addSharer(ID: String) {
+        item.addSharer(sharer: ID)
+    }
 }

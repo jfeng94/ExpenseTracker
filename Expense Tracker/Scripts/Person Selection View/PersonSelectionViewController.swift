@@ -45,10 +45,7 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
         tableView.setContentOffset(CGPoint.init(x: 0, y: searchController.searchBar.frame.size.height), animated: false)
     
         people = PersonManager.instance.GetPeople(excluding: excludedPeople)
-        
-        for person in people {
-            print(PersonManager.instance.GetName(ID: person))
-        }
+
 //        if let splitViewController = splitViewController {
 //            let controllers = splitViewController.viewControllers
 //            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -108,12 +105,32 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
                 person = people[indexPath.row]
             }
             
-            cell.name.text = PersonManager.instance.GetName(ID: person)
-            cell.photo.image = PersonManager.instance.GetPhoto(ID: person)
+            cell.setPerson(ID: person)
             return cell
         }
 
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let person: String
+        if (isFiltering()) {
+            person = filteredPeople[indexPath.row]
+        }
+        else {
+            person = people[indexPath.row]
+        }
+        
+        let numControllers = navigationController?.viewControllers.count
+        let controller = navigationController?.viewControllers[numControllers! - 2]
+        if let c = controller as? ItemTableViewController {
+            print("adding sharer " + PersonManager.instance.GetName(ID: person))
+            c.addSharer(ID: person)
+        }
+        
+        navigationController?.popViewController(animated: true)
+        
+        //...
     }
     
     // MARK: - Segues

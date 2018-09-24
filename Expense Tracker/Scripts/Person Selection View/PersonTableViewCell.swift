@@ -12,6 +12,15 @@ class PersonTableViewCell: UITableViewCell {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var name: UILabel!
     
+    var ID : String!
+    
+    func setPerson(ID : String) {
+        photo.image = PersonManager.instance.GetPhoto(ID: ID)
+        name.text   = PersonManager.instance.GetName(ID: ID)
+        
+        self.ID = ID
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -98,6 +98,9 @@ class PersonManager {
             }
         }
         
+        // Sort by alphabetical order
+        toReturn.sort(by: {GetName(ID: $0) < GetName(ID: $1)} )
+        
         return toReturn
     }
 }
