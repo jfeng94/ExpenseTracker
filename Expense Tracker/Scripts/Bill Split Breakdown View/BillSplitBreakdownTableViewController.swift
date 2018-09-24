@@ -40,6 +40,13 @@ class BillSplitBreakdownTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+//    override func viewDidAppear(_ animated: Bool) {
+//        navigationController?.navigationBar.topItem?.title = PersonManager.instance.GetName(ID: sharer)
+//    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = PersonManager.instance.GetName(ID: sharer)
+    }
+    
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
