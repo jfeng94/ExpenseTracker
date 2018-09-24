@@ -27,17 +27,19 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
         
         view.addGestureRecognizer(tapGesture)
         
-        name.delegate = self
-        notes.delegate = self
-        price.delegate = self
-        tax.delegate = self
-        tip.delegate = self
-        tag.delegate = self
+        var i = 0
+        name.delegate  = self; name.tag  = i; i = i + 1
+        notes.delegate = self; notes.tag = i; i = i + 1
+        price.delegate = self; price.tag = i; i = i + 1
+        tax.delegate   = self; tax.tag   = i; i = i + 1
+        tip.delegate   = self; tip.tag   = i; i = i + 1
+        tag.delegate   = self; tag.tag   = i; i = i + 1
         
+        name.addTarget(self, action: #selector(ItemDetailsViewController.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
         
-//        price.keyboardType = .numberPad
-//        tax.keyboardType   = .numberPad
-//        tip.keyboardType   = .numberPad
+        price.keyboardType = .decimalPad
+        tax.keyboardType   = .decimalPad
+        tip.keyboardType   = .decimalPad
         
         if (saveButton != nil) {
             saveButton.isEnabled = false
@@ -52,10 +54,17 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        
-        return true
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        // Do not add a line break
+        return false
     }
+    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField == price || textField == tax || textField == tip) {
@@ -63,6 +72,10 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
                 textField.text = ""
             }
         }
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        updateSaveButtonState()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -150,25 +163,25 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
 //    // In a storyboard-based application, you will often want to do a little preparation before navigation
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        super.prepare(for: segue, sender: sender)
-//        
+//
 //        switch(segue.identifier ?? "") {
 //        case "save":
 //            guard let itemTableViewController = segue.destination as? ItemTableViewController else {
 //                fatalError("Unexpected destination: \(segue.destination)")
 //            }
-//            
+//
 //            itemTableViewController.item = item
-//        
+//
 //            if (sender as? UIBarButtonItem == saveButton) {
 //                if let prevScreen = navigationController?.popViewController(animated: false) as? ReceiptTableViewController {
 //                    prevScreen.addToReceipt(item: item)
 //                }
 //            }
-//        
+//
 //        default:
 //            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
 //        }
-//        
+//
 //    }
 
 }

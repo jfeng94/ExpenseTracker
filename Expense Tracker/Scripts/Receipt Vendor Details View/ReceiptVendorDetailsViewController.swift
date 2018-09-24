@@ -20,10 +20,14 @@ class ReceiptVendorDetailsViewController: UIViewController, UITextFieldDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vendorName.delegate = self
-        date.delegate = self
-        tax.delegate = self
-        tip.delegate = self
+        var i = 0
+        vendorName.delegate = self; vendorName.tag = i; i = i + 1
+              date.delegate = self;       date.tag = i; i = i + 1
+               tax.delegate = self;        tax.tag = i; i = i + 1
+               tip.delegate = self;        tip.tag = i; i = i + 1
+        
+        tax.keyboardType = .decimalPad
+        tip.keyboardType = .decimalPad
         
         datePicker = UIDatePicker()
         datePicker.datePickerMode = .dateAndTime;
@@ -52,9 +56,15 @@ class ReceiptVendorDetailsViewController: UIViewController, UITextFieldDelegate 
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        
-        return true
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        // Do not add a line break
+        return false
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

@@ -116,10 +116,12 @@ class Item {
     func setSharerBuys(sharer: Int, numBought: Int) {
         var canAdd = true;
         
-        for i in 0...sharers.count - 1 {
-            if (sharers[i] == sharer) {
-                canAdd = false;
-                break;
+        if (sharers.count != 0) {
+            for i in 0...sharers.count - 1 {
+                if (sharers[i] == sharer) {
+                    canAdd = false;
+                    break;
+                }
             }
         }
         
@@ -132,9 +134,12 @@ class Item {
     
     func removeSharer(sharer: Int) {
         var toRemove = -1;
-        for i in 0...sharers.count - 1 {
-            if (sharers[i] == sharer) {
-                toRemove = i
+        
+        if (sharers.count != 0) {
+            for i in 0...sharers.count - 1 {
+                if (sharers[i] == sharer) {
+                    toRemove = i
+                }
             }
         }
         

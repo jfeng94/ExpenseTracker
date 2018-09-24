@@ -23,7 +23,22 @@ class ReceiptTableViewController: UITableViewController {
         super.viewDidAppear(animated)
 
         if (enteredFromNewItem) {
-            performSegue(withIdentifier: "ShowItemDetail", sender: tableView.cellForRow(at: IndexPath.init(row: receipt.items.count + 1, section: 0)))
+            tableView.reloadData()
+            print("row is " + String(receipt.items.count + 1))
+            print("num cells: " + String(tableView.numberOfRows(inSection: 0)))
+            if let cell = tableView.cellForRow(at: IndexPath.init(row: receipt.items.count + 1, section: 0)) {
+                performSegue(withIdentifier: "ShowItemDetail", sender: cell)
+            }
+            else if (tableView.visibleCells.count > 2){
+                let idx = tableView.visibleCells.count - 2
+                let cell = tableView.visibleCells[idx]
+                
+                print("index is " + String(idx))
+                performSegue(withIdentifier: "ShowItemDetail", sender: cell)
+            }
+            else {
+                print("Cell is nil?")
+            }
         }
         enteredFromNewItem = false
     }
@@ -72,7 +87,7 @@ class ReceiptTableViewController: UITableViewController {
         items += [Item.init(name: "Nom Nom Green Tea", note: "Hal-f sugar, no ice, big straw", price: 3.95, tax: 9.25, tip: 0.0, sortingTag: "Drink",           sharers: [tony],         sharerBuys: nngt2)]
         items += [Item.init(name: "Rose Milk Tea",     note: "Bobes",                          price: 4.45, tax: 9.25, tip: 0.0, sortingTag: "Life sustenance", sharers: [grace],        sharerBuys: rmt)]
         items += [Item.init(name: "Popcorn Chicken",   note: "Mild",                           price: 4.95, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [jerry, grace], sharerBuys: pc1)]
-        items += [Item.init(name: "Popcorn Chicken",   note: "Spice me a new butthole",        price: 4.95, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [tim],          sharerBuys: pc2)]
+//        items += [Item.init(name: "Popcorn Chicken",   note: "Spice me a new butthole",        price: 4.95, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [tim],          sharerBuys: pc2)]
         
         receipt = Receipt.init(vendorName: "Factory Tea Bar", items: items, date : Date.init())
     }
