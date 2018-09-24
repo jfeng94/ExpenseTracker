@@ -18,7 +18,7 @@ class Item {
     var numUnits:   Int
     var tax:        Float // As a percentage. Aka 9.25% => 0.0925
     var tip:        Float // As a percentage. Aka 20% => 0.2
-    var sharers:   [String]
+    var sharers:   [Int]
     var sortingTag: String
     
     static var defaultTax = Float(9.25)
@@ -38,7 +38,7 @@ class Item {
     }
     
     // Explicit initialization
-    init(name: String, note: String, price: Float, numUnits: Int, tax: Float, tip: Float, sortingTag: String, sharers: [String]) {
+    init(name: String, note: String, price: Float, numUnits: Int, tax: Float, tip: Float, sortingTag: String, sharers: [Int]) {
         self.name = name
         self.note = note
         self.price = price
@@ -74,7 +74,11 @@ class Item {
         return Util.GetValueAsPercentString(self.tip)
     }
     
-    func GetSharerCost(sharer: String) -> Float {
+    func GetSharerCost(sharer: Int) -> Float {
+        if (sharer == PersonManager.voidPersonID) {
+            return GetUnaccountedCost()
+        }
+        
         for personID in sharers {
             if (personID == sharer) {
                 return GetTotalCost() / Float(sharers.count)
@@ -94,7 +98,7 @@ class Item {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Sharer methods
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    func addSharer(sharer: String) {
+    func addSharer(sharer: Int) {
         var canAdd = true;
         
         for i in 0...sharers.count - 1 {
@@ -109,7 +113,7 @@ class Item {
         }
     }
     
-    func removeSharer(sharer: String) {
+    func removeSharer(sharer: Int) {
         var toRemove = -1;
         for i in 0...sharers.count - 1 {
             if (sharers[i] == sharer) {

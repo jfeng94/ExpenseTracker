@@ -40,9 +40,9 @@ class Receipt {
     ////////////////////////
     // MARK: Sharer stats
     ////////////////////////
-    func GetSharerIDs() -> [String] {
+    func GetSharerIDs() -> [Int] {
         let peopleMap = NSMutableSet()
-        var sharers = [String]()
+        var sharers = [Int]()
         for item in items {
             for sharer in item.sharers {
                 if (!peopleMap.contains(sharer)) {
@@ -55,7 +55,7 @@ class Receipt {
         return sharers
     }
     
-    func GetSharerCost(sharer: String) -> Float {
+    func GetSharerCost(sharer: Int) -> Float {
         var sum = Float(0)
         for item in items {
             sum += item.GetSharerCost(sharer: sharer)
@@ -64,7 +64,7 @@ class Receipt {
         return sum
     }
     
-    func GetSharerCostAsString(sharer: String) -> String {
+    func GetSharerCostAsString(sharer: Int) -> String {
         return Util.GetValueAsCurrencyString(GetSharerCost(sharer: sharer))
     }
     
@@ -75,7 +75,6 @@ class Receipt {
         }
         
         return sum
-        
     }
     
     func GetUnaccountedCostAsString() -> String {

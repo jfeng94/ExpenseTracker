@@ -14,10 +14,10 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet var tableView: UITableView!
     
 //    var detailViewController: DetailViewController? = nil
-    var excludedPeople = [String]()
+    var excludedPeople = [Int]()
     
-    var people = [String]()
-    var filteredPeople = [String]()
+    var people = [Int]()
+    var filteredPeople = [Int]()
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -72,7 +72,7 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredPeople = people.filter({( person : String) -> Bool in
+        filteredPeople = people.filter({( person : Int) -> Bool in
             return PersonManager.instance.GetName(ID: person).lowercased().contains(searchText.lowercased())
         })
         
@@ -98,7 +98,7 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath) as? PersonTableViewCell {
-            let person: String
+            let person: Int
             if isFiltering() {
                 person = filteredPeople[indexPath.row]
             } else {
@@ -113,7 +113,7 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let person: String
+        let person: Int
         if (isFiltering()) {
             person = filteredPeople[indexPath.row]
         }

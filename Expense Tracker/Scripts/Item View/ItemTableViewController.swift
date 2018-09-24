@@ -164,7 +164,7 @@ class ItemTableViewController: UITableViewController {
         }
     }
     
-    func addSharer(ID: String) {
+    func addSharer(ID: Int) {
         item.addSharer(sharer: ID)
     }
 }

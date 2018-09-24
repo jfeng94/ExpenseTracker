@@ -14,11 +14,14 @@ class PersonManager {
     
     static let instance = PersonManager()
     
+    static var currID = 0
+    static var voidPersonID = -1
+    
     private init() {
         self.idToPerson = NSMutableDictionary()
     }
     
-    private func GetPerson(ID: String) -> Person? {
+    private func GetPerson(ID: Int) -> Person? {
         let person = idToPerson[ID] as? Person
         
         if (person == nil) {
@@ -31,15 +34,34 @@ class PersonManager {
     private func AddPerson(person: Person) {
         idToPerson[person.GetID()] = person
     }
+
+    private func CreateVoidPerson() {
+        let newPerson = Person.init(manager: self, ID: PersonManager.voidPersonID)
+        SetName(ID: PersonManager.voidPersonID, name: "Unaccounted")
+        SetPhoto(ID: PersonManager.voidPersonID, photo: GetVoidPhoto())
+        AddPerson(person: newPerson)
+    }
     
-    func CreateNewPerson() -> String {
-        let newPerson = Person.init()
+    func GetVoidPhoto() -> UIImage? {
+        return UIImage(named: "Void User")
+    }
+    
+    func GetVoidName() -> String {
+        return "Unaccounted"
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: PUBLIC INTERFACE
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    func CreateNewPerson() -> Int {
+        let newPerson = Person.init(manager: self, ID: PersonManager.currID)
+        PersonManager.currID = PersonManager.currID + 1
         AddPerson(person: newPerson)
         return newPerson.GetID()
     }
 
-    func GetPhoto(ID: String) -> UIImage? {
-        if (ID.isEmpty) {
+    func GetPhoto(ID: Int) -> UIImage? {
+        if (ID == PersonManager.voidPersonID) {
             return GetVoidPhoto()
         }
         
@@ -51,12 +73,9 @@ class PersonManager {
         return nil
     }
 
-    func GetVoidPhoto() -> UIImage? {
-        return UIImage(named: "Void User")
-    }
     
-    func GetName(ID: String) -> String {
-        if (ID.isEmpty) {
+    func GetName(ID: Int) -> String {
+        if (ID == PersonManager.voidPersonID) {
             return GetVoidName()
         }
         
@@ -68,11 +87,7 @@ class PersonManager {
         return ""
     }
     
-    func GetVoidName() -> String {
-        return "Lost to the void..."
-    }
-    
-    func SetPhoto(ID: String, photo: UIImage?) {
+    func SetPhoto(ID: Int, photo: UIImage?) {
         let person = GetPerson(ID: ID)
         
         if (person != nil) {
@@ -80,7 +95,7 @@ class PersonManager {
         }
     }
     
-    func SetName(ID: String, name: String) {
+    func SetName(ID: Int, name: String) {
         let person = GetPerson(ID: ID)
         
         if (person != nil) {
@@ -88,14 +103,14 @@ class PersonManager {
         }
     }
     
-    func GetPeople(excluding: [String]) -> [String] {
-        var toReturn = [String]()
+    func GetPeople(excluding: [Int]) -> [Int] {
+        var toReturn = [Int]()
         let keys = idToPerson.allKeys
         for key in keys {
-            if let id = key as? String {
+            if let id = key as? Int {
                 var add = true
                 for excluded in excluding {
-                    if (id == excluded) {
+                    if (id == excluded || id == PersonManager.voidPersonID) {
                         add = false
                         break
                     }

@@ -10,62 +10,32 @@ import UIKit
 
 class BillSplitBreakdownTableViewController: UITableViewController {
     var receipt: Receipt!
-    var sharer: String!
+    var sharer = PersonManager.voidPersonID
     var items: [Item]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if (sharer != nil) {
-            items = [Item]()
-            for item in receipt.items {
-                if (item.GetSharerCost(sharer: sharer) != Float(0)) {
-                    items! += [item]
-                }
+        items = [Item]()
+        for item in receipt.items {
+            if (item.GetSharerCost(sharer: sharer) != Float(0)) {
+                items! += [item]
             }
         }
-        else {
-            items = [Item]()
-            for item in receipt.items {
-                if (item.GetUnaccountedCost() != Float(0)) {
-                    items! += [item]
-                }
-            }
-        }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-//    override func viewDidAppear(_ animated: Bool) {
-//        navigationController?.navigationBar.topItem?.title = PersonManager.instance.GetName(ID: sharer)
-//    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
         
-        if (sharer != nil) {
-            self.navigationItem.title = PersonManager.instance.GetName(ID: sharer)
-        }
-        else {
-            self.navigationItem.title = "Unaccounted"
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        tableView.reloadData()
+        self.navigationItem.title = PersonManager.instance.GetName(ID: sharer)
+
     }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -80,14 +50,8 @@ class BillSplitBreakdownTableViewController: UITableViewController {
             cell.itemLabel.text  = item.name
             cell.note.text       = item.note
             
-            if (sharer != nil) {
-                let share = Util.GetValueAsCurrencyString(item.GetSharerCost(sharer: sharer))
-                cell.priceLabel.text = share
-            }
-            else {
-                let share = Util.GetValueAsCurrencyString(item.GetUnaccountedCost())
-                cell.priceLabel.text = share
-            }
+            let share = Util.GetValueAsCurrencyString(item.GetSharerCost(sharer: sharer))
+            cell.priceLabel.text = share
             
             return cell;
         }

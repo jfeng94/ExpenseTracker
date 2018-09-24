@@ -12,9 +12,9 @@ class PersonTableViewCell: UITableViewCell {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var name: UILabel!
     
-    var ID : String!
+    var ID = PersonManager.voidPersonID
     
-    func setPerson(ID : String) {
+    func setPerson(ID : Int) {
         photo.image = PersonManager.instance.GetPhoto(ID: ID)
         name.text   = PersonManager.instance.GetName(ID: ID)
         

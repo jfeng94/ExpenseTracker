@@ -10,7 +10,7 @@ import UIKit
 
 class BillSplitTableViewController: UITableViewController {
     var receipt: Receipt!
-    var sharers: [String]!
+    var sharers = [Int]()
     
     
     override func viewDidLoad() {
@@ -40,36 +40,25 @@ class BillSplitTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (sharers != nil) {
-            if (receipt.GetUnaccountedCost() != Float(0)) {
-                return sharers.count + 1
-            }
-            else {
-                return sharers.count
-            }
-        }
-        
         if (receipt.GetUnaccountedCost() != Float(0)) {
-            return 1
+            return sharers.count + 1
         }
         else {
-            return 0
+            return sharers.count
         }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "sharerCell", for: indexPath) as? ItemSharerTableViewCell {
             
+            var ID = PersonManager.voidPersonID
             if (indexPath.row < sharers.count) {
-                cell.profileImage.image = PersonManager.instance.GetPhoto(ID: sharers[indexPath.row])
-                cell.sharerName.text    = PersonManager.instance.GetName(ID: sharers[indexPath.row])
-                cell.sharerPrice.text   = receipt.GetSharerCostAsString(sharer: sharers[indexPath.row])
+                ID = sharers[indexPath.row];
             }
-            else {
-                cell.profileImage.image = PersonManager.instance.GetVoidPhoto()
-                cell.sharerName.text    = PersonManager.instance.GetVoidName()
-                cell.sharerPrice.text   = receipt.GetUnaccountedCostAsString()
-            }
+            
+            cell.profileImage.image = PersonManager.instance.GetPhoto(ID: ID)
+            cell.sharerName.text    = PersonManager.instance.GetName(ID: ID)
+            cell.sharerPrice.text   = receipt.GetSharerCostAsString(sharer: ID)
             return cell;
         }
 
@@ -135,13 +124,12 @@ class BillSplitTableViewController: UITableViewController {
             }
             
             billSplitBreakdownTableViewController.receipt = receipt
+            
+            var sharerID = PersonManager.voidPersonID
             if (indexPath.row < sharers.count) {
-                billSplitBreakdownTableViewController.sharer  = sharers[indexPath.row]
+                sharerID = sharers[indexPath.row]
             }
-            else {
-                billSplitBreakdownTableViewController.sharer  = nil
-            }
-//            BillSplitBreakdownTableViewController.title = PersonManager.instance.GetName(ID: sharers[indexPath.row])
+            billSplitBreakdownTableViewController.sharer = sharerID
             
         default:
             fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")

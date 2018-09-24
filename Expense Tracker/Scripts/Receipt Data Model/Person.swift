@@ -10,24 +10,24 @@ import UIKit
 
 class Person {
     //MARK: Properties
-    private var ID: String      // UUID for person
+    private var ID: Int         // Auto-increment
     private var name: String    // Name of person
     private var photo: UIImage? // Profile picture
     
     // Create a person, manually setting the UUID
-    init(manager: PersonManager, ID: String, name: String, photo: UIImage?) {
+    init(manager: PersonManager, ID: Int, name: String, photo: UIImage?) {
         self.ID = ID
         self.name = name
         self.photo = photo
     }
     
-    init() {
-        self.ID = NSUUID().uuidString
+    init(manager: PersonManager, ID: Int) {
+        self.ID = ID
         self.name = ""
         self.photo = nil
     }
     
-    func GetID() -> String {
+    func GetID() -> Int {
         return ID
     }
     
