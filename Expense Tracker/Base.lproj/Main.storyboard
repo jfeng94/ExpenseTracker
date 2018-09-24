@@ -158,7 +158,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="60" id="eSV-02-c6W" userLabel="ItemCell" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="60" id="eSV-02-c6W" userLabel="ItemCell" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eSV-02-c6W" id="B4e-1I-Z9U" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
@@ -192,6 +192,7 @@
                                     <outlet property="itemLabel" destination="L1p-Ex-9jl" id="9HR-Ft-1yg"/>
                                     <outlet property="note" destination="5ff-5V-Xj7" id="KNl-pC-52R"/>
                                     <outlet property="priceLabel" destination="l0p-GF-CvT" id="EaU-vR-Np5"/>
+                                    <segue destination="Cgr-2d-UE5" kind="show" identifier="ShowItemDetail" id="cCQ-Zb-Ltw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -371,10 +372,10 @@
                                     <segue destination="Cgr-2d-UE5" kind="show" identifier="ShowItemDetail" id="YzR-Af-QNa"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newItemCell" textLabel="pim-rY-s3y" style="IBUITableViewCellStyleDefault" id="E5t-kj-2em" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newItemCell" textLabel="pim-rY-s3y" style="IBUITableViewCellStyleDefault" id="E5t-kj-2em">
                                 <rect key="frame" x="0.0" y="186" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E5t-kj-2em" id="1SK-YN-oqP" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E5t-kj-2em" id="1SK-YN-oqP" customClass="I">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -388,29 +389,25 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="itemLabel" destination="pim-rY-s3y" id="ZyF-uw-qn7"/>
                                     <segue destination="FNb-eq-6SE" kind="show" identifier="newItem" id="SII-kY-e9F"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" textLabel="Mtl-Bj-AzM" rowHeight="25" style="IBUITableViewCellStyleDefault" id="64B-By-Lrm" userLabel="headerCell" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="230" width="320" height="25"/>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" textLabel="Xbk-ac-7Nx" style="IBUITableViewCellStyleDefault" id="wbH-f8-gTp">
+                                <rect key="frame" x="0.0" y="230" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="64B-By-Lrm" id="bwM-RW-LE3" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="25"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wbH-f8-gTp" id="eBY-PG-cS5">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Items" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mtl-Bj-AzM">
-                                            <rect key="frame" x="16" y="0.0" width="288" height="25"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xbk-ac-7Nx">
+                                            <rect key="frame" x="16" y="0.0" width="288" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="itemLabel" destination="Mtl-Bj-AzM" id="skG-qw-jWs"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -426,42 +423,6 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
-                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="60" id="eIN-4r-KET" userLabel="ItemCell" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eIN-4r-KET" id="phL-or-vbo" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom Nom Green Tea" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEx-Ll-dJE">
-                                <rect key="frame" x="16" y="11" width="219" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="with boba, half sugar, no ice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtd-Lq-de5">
-                                <rect key="frame" x="16" y="32" width="288" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$4.85" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydH-n2-XkT">
-                                <rect key="frame" x="234" y="11" width="69" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </tableViewCellContentView>
-                    <connections>
-                        <outlet property="itemLabel" destination="aEx-Ll-dJE" id="Yyb-Tr-e6f"/>
-                        <outlet property="note" destination="Mtd-Lq-de5" id="G5Z-zE-3df"/>
-                        <outlet property="priceLabel" destination="ydH-n2-XkT" id="2rG-YA-TSi"/>
-                    </connections>
-                </tableViewCell>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6e-3z-xDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1117.5" y="-730.9859154929577"/>
@@ -1053,4 +1014,7 @@
         <image name="history" width="25" height="25"/>
         <image name="home" width="23" height="21"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YzR-Af-QNa"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -43,10 +43,25 @@ class BillSplitBreakdownTableViewController: UITableViewController {
 //    override func viewDidAppear(_ animated: Bool) {
 //        navigationController?.navigationBar.topItem?.title = PersonManager.instance.GetName(ID: sharer)
 //    }
+
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.title = PersonManager.instance.GetName(ID: sharer)
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+        
+        if (sharer != nil) {
+            self.navigationItem.title = PersonManager.instance.GetName(ID: sharer)
+        }
+        else {
+            self.navigationItem.title = "Unaccounted"
+        }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()
+    }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -130,14 +145,32 @@ class BillSplitBreakdownTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+        case "ShowItemDetail":
+            guard let itemTableViewController = segue.destination as? ItemTableViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedItemCell = sender as? ItemTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            itemTableViewController.item = items[indexPath.row]
+            
+        default:
+            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

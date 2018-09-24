@@ -18,11 +18,17 @@ class ReceiptTableViewController: UITableViewController {
         loadSampleReceipt()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//        tableView.reloadData()
+//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         tableView.reloadData()
     }
+
     
 //    override func didReceiveMemoryWarning() {
 //        super.didReceiveMemoryWarning()
@@ -98,9 +104,8 @@ class ReceiptTableViewController: UITableViewController {
             }
         }
         else if (indexPath.row == 1) {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell", for: indexPath) as? VendorTableViewCell {
-                return cell;
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell", for: indexPath)
+            return cell;
         }
         else if (receipt != nil && indexPath.row >= 2 && indexPath.row < receipt.items.count + 2) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell {
@@ -121,25 +126,37 @@ class ReceiptTableViewController: UITableViewController {
         return UITableViewCell()
     }
 
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
+        if (indexPath.row == 0 || indexPath.row == 1 || indexPath.row >= receipt.items.count + 2) {
+            return false
+        }
         return true
     }
-    */
 
-    /*
+
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle:
+        UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
             // Delete the row from the data source
+            receipt.items.remove(at: indexPath.row - 2)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+            
+//            let anim = UIView.areAnimationsEnabled
+//            UIView.setAnimationsEnabled(false)
+//            self.tableView.beginUpdates()
+//            tableView.reloadRows(at: [IndexPath.init(row: 0, section: 0)], with: .none)
+//            self.tableView.endUpdates()
+//            UIView.setAnimationsEnabled(anim)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.

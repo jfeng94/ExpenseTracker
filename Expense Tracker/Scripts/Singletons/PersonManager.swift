@@ -39,6 +39,10 @@ class PersonManager {
     }
 
     func GetPhoto(ID: String) -> UIImage? {
+        if (ID.isEmpty) {
+            return GetVoidPhoto()
+        }
+        
         let person = GetPerson(ID: ID)
         if (person != nil) {
             return person?.GetPhoto()
@@ -52,6 +56,10 @@ class PersonManager {
     }
     
     func GetName(ID: String) -> String {
+        if (ID.isEmpty) {
+            return GetVoidName()
+        }
+        
         let person = GetPerson(ID: ID)
         if (person != nil) {
             return person!.GetName()
