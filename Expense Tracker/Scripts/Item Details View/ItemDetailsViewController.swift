@@ -12,7 +12,6 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var notes: UITextField!
     @IBOutlet weak var price: UITextField!
-    @IBOutlet weak var num: UITextField!
     @IBOutlet weak var tax: UITextField!
     @IBOutlet weak var tip: UITextField!
     @IBOutlet weak var tag: UITextField!
@@ -31,13 +30,12 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
         name.delegate = self
         notes.delegate = self
         price.delegate = self
-        num.delegate = self
         tax.delegate = self
         tip.delegate = self
         tag.delegate = self
         
+        
 //        price.keyboardType = .numberPad
-//        num.keyboardType   = .numberPad
 //        tax.keyboardType   = .numberPad
 //        tip.keyboardType   = .numberPad
         
@@ -96,7 +94,6 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
             name.text  = item.name
             notes.text = item.note
             price.text = Util.Format2Dec(item.price)
-            num.text   = String(item.numUnits)
             tax.text   = Util.Format2Dec(item.tax)
             tip.text   = Util.Format2Dec(item.tip)
             tag.text   = item.sortingTag
@@ -124,16 +121,6 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
                     item.price = Float(0);
                 }
             }
-            
-            if let s = num.text {
-                if let n = Int(s) {
-                    item.numUnits = n
-                }
-                else if (s.isEmpty) {
-                    item.numUnits = Int(0);
-                }
-            }
-            
             if let s = tax.text {
                 if let t = Float(s) {
                     item.tax = t
@@ -158,14 +145,30 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        super.prepare(for: segue, sender: sender)
+//        
+//        switch(segue.identifier ?? "") {
+//        case "save":
+//            guard let itemTableViewController = segue.destination as? ItemTableViewController else {
+//                fatalError("Unexpected destination: \(segue.destination)")
+//            }
+//            
+//            itemTableViewController.item = item
+//        
+//            if (sender as? UIBarButtonItem == saveButton) {
+//                if let prevScreen = navigationController?.popViewController(animated: false) as? ReceiptTableViewController {
+//                    prevScreen.addToReceipt(item: item)
+//                }
+//            }
+//        
+//        default:
+//            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
+//        }
+//        
+//    }
 
 }

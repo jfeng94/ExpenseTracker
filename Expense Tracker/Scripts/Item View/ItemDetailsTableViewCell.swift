@@ -20,7 +20,7 @@ class ItemDetailsTableViewCell: UITableViewCell {
     func configure(item: Item) {
               name.text = item.name
               note.text = item.note
-       priceAndNum.text = item.GetPriceAsString() + " × " + String(item.numUnits)
+       priceAndNum.text = item.GetPriceAsString() + " × " + String(item.GetNumUnits())
                tax.text = item.GetTaxAsString()
                tip.text = item.GetTipAsString()
         sortingTag.text = item.sortingTag

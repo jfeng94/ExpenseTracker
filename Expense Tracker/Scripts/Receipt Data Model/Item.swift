@@ -12,14 +12,14 @@ class Item {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Properties
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    var name:       String
-    var note:       String
-    var price:      Float
-    var numUnits:   Int
-    var tax:        Float // As a percentage. Aka 9.25% => 0.0925
-    var tip:        Float // As a percentage. Aka 20% => 0.2
-    var sharers:   [Int]
-    var sortingTag: String
+    var name:         String
+    var note:         String
+    var price:        Float
+    var tax:          Float // As a percentage. Aka 9.25% => 0.0925
+    var tip:          Float // As a percentage. Aka 20% => 0.2
+    var sharers:     [Int]
+    var sharerBuys =  NSMutableDictionary()
+    var sortingTag:   String
     
     static var defaultTax = Float(9.25)
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,7 +30,6 @@ class Item {
         self.name = name
         self.note = ""
         self.price = 0
-        self.numUnits = 1
         self.tax = Item.defaultTax
         self.tip = 0.0
         self.sharers = []
@@ -38,23 +37,37 @@ class Item {
     }
     
     // Explicit initialization
-    init(name: String, note: String, price: Float, numUnits: Int, tax: Float, tip: Float, sortingTag: String, sharers: [Int]) {
+    init(name: String, note: String, price: Float, tax: Float, tip: Float, sortingTag: String, sharers: [Int], sharerBuys: NSMutableDictionary) {
         self.name = name
         self.note = note
         self.price = price
-        self.numUnits = numUnits
         self.tax = tax
         self.tip = tip
         self.sharers = []
         self.sharers += sharers
         self.sortingTag = sortingTag
+        self.sharerBuys = sharerBuys
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Convenience methods
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    func GetNumUnits() -> Int {
+        var num = 0
+        for id in sharers {
+            if let numBought = sharerBuys[id] as? Int {
+                num = num + numBought
+            }
+        }
+        return num
+    }
+    
+    func GetUnitCost() -> Float {
+        return price * (1 + (tax / 100) + (tip / 100))
+    }
+    
     func GetTotalCost() -> Float {
-        return (price * Float(numUnits) * (1 + (tax / 100) + (tip / 100)))
+        return GetUnitCost() * Float(GetNumUnits())
     }
     
     func GetPriceAsString() -> String {
@@ -81,7 +94,9 @@ class Item {
         
         for personID in sharers {
             if (personID == sharer) {
-                return GetTotalCost() / Float(sharers.count)
+                if let num = sharerBuys[sharer] as? Int {
+                    return GetUnitCost() * Float(num)
+                }
             }
         }
         return 0
@@ -98,7 +113,7 @@ class Item {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Sharer methods
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    func addSharer(sharer: Int) {
+    func setSharerBuys(sharer: Int, numBought: Int) {
         var canAdd = true;
         
         for i in 0...sharers.count - 1 {
@@ -111,6 +126,8 @@ class Item {
         if (canAdd) {
             sharers.append(sharer)
         }
+        
+        sharerBuys[sharer] = numBought
     }
     
     func removeSharer(sharer: Int) {
@@ -123,6 +140,7 @@ class Item {
         
         if (toRemove != -1) {
             sharers.remove(at: toRemove);
+            sharerBuys.removeObject(forKey: sharer)
         }
     }
 }

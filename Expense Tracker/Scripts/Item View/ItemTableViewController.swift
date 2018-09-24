@@ -67,7 +67,7 @@ class ItemTableViewController: UITableViewController {
                 let sharer = item.sharers[indexPath.row - 2]
                 cell.profileImage.image = PersonManager.instance.GetPhoto(ID: sharer)
                 cell.sharerName.text    = PersonManager.instance.GetName(ID: sharer)
-                cell.sharerPrice.text   = String(format: "$%.02f", item.GetTotalCost() / Float(item.sharers.count))
+                cell.sharerPrice.text   = Util.GetValueAsCurrencyString(item.GetSharerCost(sharer: sharer)) 
                 return cell;
             }
         }
@@ -165,6 +165,6 @@ class ItemTableViewController: UITableViewController {
     }
     
     func addSharer(ID: Int) {
-        item.addSharer(sharer: ID)
+        item.setSharerBuys(sharer: ID, numBought: 1)
     }
 }

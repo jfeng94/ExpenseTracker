@@ -11,6 +11,7 @@ import os.log
 
 class ReceiptTableViewController: UITableViewController {
     var receipt: Receipt!
+    var enteredFromNewItem = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +19,15 @@ class ReceiptTableViewController: UITableViewController {
         loadSampleReceipt()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//        tableView.reloadData()
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if (enteredFromNewItem) {
+            performSegue(withIdentifier: "ShowItemDetail", sender: tableView.cellForRow(at: IndexPath.init(row: receipt.items.count + 1, section: 0)))
+        }
+        enteredFromNewItem = false
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -56,12 +61,18 @@ class ReceiptTableViewController: UITableViewController {
         PersonManager.instance.SetPhoto(ID: aris,  photo: UIImage(named: "Aris"))
         PersonManager.instance.SetPhoto(ID: tim,   photo: UIImage(named: "Tim"))
         
+        let nngt1 = NSMutableDictionary(); nngt1[jerry] = 1; nngt1[aris] = 2
+        let nngt2 = NSMutableDictionary(); nngt2[tony]  = 1;
+        let rmt   = NSMutableDictionary();   rmt[grace] = 1;
+        let pc1   = NSMutableDictionary();   pc1[jerry] = 1; pc1[grace] = 1
+        let pc2   = NSMutableDictionary();   pc2[tim]   = 2;
+        
         var items = [Item]()
-        items += [Item.init(name: "Nom Nom Green Tea", note: "Boba, half sugar, no ice",       price: 4.45, numUnits: 2, tax: 9.25, tip: 0.0, sortingTag: "Drink",           sharers: [jerry, aris])]
-        items += [Item.init(name: "Nom Nom Green Tea", note: "Hal-f sugar, no ice, big straw", price: 3.95, numUnits: 1, tax: 9.25, tip: 0.0, sortingTag: "Drink",           sharers: [tony])]
-        items += [Item.init(name: "Rose Milk Tea",     note: "Bobes",                          price: 4.45, numUnits: 1, tax: 9.25, tip: 0.0, sortingTag: "Life sustenance", sharers: [grace])]
-        items += [Item.init(name: "Popcorn Chicken",   note: "Mild",                           price: 4.95, numUnits: 2, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [jerry, grace])]
-        items += [Item.init(name: "Popcorn Chicken",   note: "Spice me a new butthole",        price: 4.95, numUnits: 1, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [tim])]
+        items += [Item.init(name: "Nom Nom Green Tea", note: "Boba, half sugar, no ice",       price: 4.45, tax: 9.25, tip: 0.0, sortingTag: "Drink",           sharers: [jerry, aris],  sharerBuys: nngt1)]
+        items += [Item.init(name: "Nom Nom Green Tea", note: "Hal-f sugar, no ice, big straw", price: 3.95, tax: 9.25, tip: 0.0, sortingTag: "Drink",           sharers: [tony],         sharerBuys: nngt2)]
+        items += [Item.init(name: "Rose Milk Tea",     note: "Bobes",                          price: 4.45, tax: 9.25, tip: 0.0, sortingTag: "Life sustenance", sharers: [grace],        sharerBuys: rmt)]
+        items += [Item.init(name: "Popcorn Chicken",   note: "Mild",                           price: 4.95, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [jerry, grace], sharerBuys: pc1)]
+        items += [Item.init(name: "Popcorn Chicken",   note: "Spice me a new butthole",        price: 4.95, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [tim],          sharerBuys: pc2)]
         
         receipt = Receipt.init(vendorName: "Factory Tea Bar", items: items, date : Date.init())
     }
@@ -110,7 +121,7 @@ class ReceiptTableViewController: UITableViewController {
         else if (receipt != nil && indexPath.row >= 2 && indexPath.row < receipt.items.count + 2) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell {
                 let item = receipt.items[indexPath.row - 2]
-                cell.itemLabel.text = item.name + " × " + String(item.numUnits)
+                cell.itemLabel.text = item.name + " × " + String(item.GetNumUnits())
                 cell.priceLabel.text = item.GetTotalCostAsString()
                 cell.note.text = item.note
                 return cell;
@@ -179,6 +190,7 @@ class ReceiptTableViewController: UITableViewController {
             let newIndexPath = IndexPath(row: receipt.items.count + 2, section: 0)
             receipt.items.append(item)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
+            enteredFromNewItem = true
         }
     }
     
