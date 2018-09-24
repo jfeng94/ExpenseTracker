@@ -57,6 +57,14 @@ class ReceiptVendorDetailsViewController: UIViewController, UITextFieldDelegate 
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if (textField == tax || textField == tip) {
+            if (textField.text == "0.00") {
+                textField.text = ""
+            }
+        }
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (receipt != nil) {
             if let s = vendorName.text {

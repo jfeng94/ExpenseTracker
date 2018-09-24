@@ -120,7 +120,7 @@ class BillSplitTableViewController: UITableViewController {
             }
             
             guard let selectedItemCell = sender as? ItemSharerTableViewCell else {
-                fatalError("Unexpected sender: \(sender)")
+                fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
             guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
@@ -137,7 +137,7 @@ class BillSplitTableViewController: UITableViewController {
 //            BillSplitBreakdownTableViewController.title = PersonManager.instance.GetName(ID: sharers[indexPath.row])
             
         default:
-            fatalError("Unexpected Segue Identifier: \(segue.identifier)")
+            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
         }
     }
 }

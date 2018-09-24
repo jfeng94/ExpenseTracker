@@ -79,4 +79,25 @@ class PersonManager {
             person!.SetName(manager: self, name: name)
         }
     }
+    
+    func GetPeople(excluding: [String]) -> [String] {
+        var toReturn = [String]()
+        let keys = idToPerson.allKeys
+        for key in keys {
+            if let id = key as? String {
+                var add = true
+                for excluded in excluding {
+                    if (id == excluded) {
+                        add = false
+                        break
+                    }
+                }
+                if (add) {
+                    toReturn += [id]
+                }
+            }
+        }
+        
+        return toReturn
+    }
 }

@@ -59,6 +59,14 @@ class ItemDetailsViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if (textField == price || textField == tax || textField == tip) {
+            if (textField.text == "0.00") {
+                textField.text = ""
+            }
+        }
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         updateItem()
         updateFields()

@@ -105,7 +105,7 @@ class ReceiptTableViewController: UITableViewController {
         else if (receipt != nil && indexPath.row >= 2 && indexPath.row < receipt.items.count + 2) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell {
                 let item = receipt.items[indexPath.row - 2]
-                cell.itemLabel.text = item.name
+                cell.itemLabel.text = item.name + " × " + String(item.numUnits)
                 cell.priceLabel.text = item.GetTotalCostAsString()
                 cell.note.text = item.note
                 return cell;
@@ -177,7 +177,7 @@ class ReceiptTableViewController: UITableViewController {
                 }
                 
                 guard let selectedItemCell = sender as? ItemTableViewCell else {
-                    fatalError("Unexpected sender: \(sender)")
+                    fatalError("Unexpected sender: \(String(describing: sender))")
                 }
                 
                 guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
@@ -192,10 +192,10 @@ class ReceiptTableViewController: UITableViewController {
                 }
                 
                 guard let selectedItemCell = sender as? VendorTableViewCell else {
-                    fatalError("Unexpected sender: \(sender)")
+                    fatalError("Unexpected sender: \(String(describing: sender))")
                 }
                 
-                guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
+                guard tableView.indexPath(for: selectedItemCell) != nil else {
                     fatalError("The selected cell is not being displayed by the table")
                 }
                 
@@ -223,7 +223,7 @@ class ReceiptTableViewController: UITableViewController {
             itemDetailsViewController.item = Item.init(name: "")
             
             default:
-                fatalError("Unexpected Segue Identifier: \(segue.identifier)")
+                fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

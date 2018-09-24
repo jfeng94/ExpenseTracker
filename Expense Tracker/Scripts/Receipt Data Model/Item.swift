@@ -21,6 +21,7 @@ class Item {
     var sharers:   [String]
     var sortingTag: String
     
+    static var defaultTax = Float(9.25)
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Initialization
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,7 +31,7 @@ class Item {
         self.note = ""
         self.price = 0
         self.numUnits = 1
-        self.tax = 0.0
+        self.tax = Item.defaultTax
         self.tip = 0.0
         self.sharers = []
         self.sortingTag = "";

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1098C6D215854B20081FAD8 /* PersonSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1098C6C215854B20081FAD8 /* PersonSelectionViewController.swift */; };
+		A1098C6F215859D40081FAD8 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1098C6E215859D40081FAD8 /* PersonTableViewCell.swift */; };
 		A1208C3A2153064400D9D39D /* BillSplitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1208C392153064400D9D39D /* BillSplitTableViewController.swift */; };
 		A1208C3D21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1208C3C21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift */; };
 		A1ACC1B621555C4D00FFE668 /* PersonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ACC1B521555C4D00FFE668 /* PersonManager.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A1098C6C215854B20081FAD8 /* PersonSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSelectionViewController.swift; sourceTree = "<group>"; };
+		A1098C6E215859D40081FAD8 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		A1208C392153064400D9D39D /* BillSplitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitTableViewController.swift; sourceTree = "<group>"; };
 		A1208C3C21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptVendorDetailsViewController.swift; sourceTree = "<group>"; };
 		A1ACC1B521555C4D00FFE668 /* PersonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonManager.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1098C6B215854870081FAD8 /* Person Selection View */ = {
+			isa = PBXGroup;
+			children = (
+				A1098C6C215854B20081FAD8 /* PersonSelectionViewController.swift */,
+				A1098C6E215859D40081FAD8 /* PersonTableViewCell.swift */,
+			);
+			path = "Person Selection View";
+			sourceTree = "<group>";
+		};
 		A1208C382153062200D9D39D /* Bill Split View */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,14 +172,15 @@
 		A1CF187B2155B5CF003A641E /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				A1098C6B215854870081FAD8 /* Person Selection View */,
 				A1CF187C2155D600003A641E /* Bill Split Breakdown View */,
-				A1ACC1B321555C1400FFE668 /* Singletons */,
 				A1208C382153062200D9D39D /* Bill Split View */,
 				A1AD44EE2151882B003CDE81 /* Item View */,
 				A1CF18782155B5A4003A641E /* Item Details View */,
 				A1AD44EC215187B2003CDE81 /* Receipt View */,
 				A1208C3B21541D1100D9D39D /* Receipt Vendor Details View */,
 				A1AD44E92151788E003CDE81 /* Receipt Data Model */,
+				A1ACC1B321555C1400FFE668 /* Singletons */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -322,8 +336,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1098C6F215859D40081FAD8 /* PersonTableViewCell.swift in Sources */,
 				A1AD44E62151764B003CDE81 /* Receipt.swift in Sources */,
 				A1AD44F821519F2F003CDE81 /* ItemSharerTableViewCell.swift in Sources */,
+				A1098C6D215854B20081FAD8 /* PersonSelectionViewController.swift in Sources */,
 				A1CF187A2155B5B9003A641E /* ItemDetailsViewController.swift in Sources */,
 				A1AD44F02151998C003CDE81 /* ItemTableViewController.swift in Sources */,
 				A1208C3D21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift in Sources */,

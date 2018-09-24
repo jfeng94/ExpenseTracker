@@ -131,8 +131,8 @@ class ItemTableViewController: UITableViewController {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedItemCell = sender as? ItemDetailsTableViewCell else {
-                fatalError("Unexpected sender: \(sender)")
+            guard (sender as? ItemDetailsTableViewCell) != nil else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
 //            guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
@@ -142,10 +142,14 @@ class ItemTableViewController: UITableViewController {
             itemDetailsViewController.item = item
             
         case "AddNewSharer":
-            print("Hi")
+            guard let nextController = segue.destination as? PersonSelectionViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            nextController.excludedPeople = item.sharers
             
         default:
-            fatalError("Unexpected Segue Identifier: \(segue.identifier)")
+            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
         }
     }
 }
