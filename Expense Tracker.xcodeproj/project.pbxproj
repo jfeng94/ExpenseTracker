@@ -22,7 +22,9 @@
 		A1AD44F821519F2F003CDE81 /* ItemSharerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44F721519F2F003CDE81 /* ItemSharerTableViewCell.swift */; };
 		A1AD44FA2151D355003CDE81 /* ItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD44F92151D355003CDE81 /* ItemDetailsTableViewCell.swift */; };
 		A1B21B2721591B73001E921A /* EditSharerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B21B2621591B73001E921A /* EditSharerViewController.swift */; };
+		A1C5B9C3215A711E00BFDCE9 /* NewItemSharerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C5B9C2215A711E00BFDCE9 /* NewItemSharerViewCell.swift */; };
 		A1C62F61215A110C0089F23E /* BillSplitItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C62F60215A110C0089F23E /* BillSplitItemTableViewCell.swift */; };
+		A1C62F64215A1C9B0089F23E /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C62F63215A1C9B0089F23E /* NewItemViewController.swift */; };
 		A1CF187A2155B5B9003A641E /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */; };
 		A1CF187E2155D653003A641E /* BillSplitBreakdownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */; };
 		A1CF18802155D9AD003A641E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF187F2155D9AD003A641E /* Util.swift */; };
@@ -60,7 +62,9 @@
 		A1AD44F721519F2F003CDE81 /* ItemSharerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSharerTableViewCell.swift; sourceTree = "<group>"; };
 		A1AD44F92151D355003CDE81 /* ItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		A1B21B2621591B73001E921A /* EditSharerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSharerViewController.swift; sourceTree = "<group>"; };
+		A1C5B9C2215A711E00BFDCE9 /* NewItemSharerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemSharerViewCell.swift; sourceTree = "<group>"; };
 		A1C62F60215A110C0089F23E /* BillSplitItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitItemTableViewCell.swift; sourceTree = "<group>"; };
+		A1C62F63215A1C9B0089F23E /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitBreakdownTableViewController.swift; sourceTree = "<group>"; };
 		A1CF187F2155D9AD003A641E /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Scripts/Util.swift; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */,
+				A1C62F63215A1C9B0089F23E /* NewItemViewController.swift */,
+				A1C5B9C2215A711E00BFDCE9 /* NewItemSharerViewCell.swift */,
 			);
 			path = "Item Details View";
 			sourceTree = "<group>";
@@ -363,11 +369,13 @@
 				A1AD44DE21507F91003CDE81 /* VendorTableViewCell.swift in Sources */,
 				A1AD44E4215088C6003CDE81 /* ItemTableViewCell.swift in Sources */,
 				A1CF187E2155D653003A641E /* BillSplitBreakdownTableViewController.swift in Sources */,
+				A1C5B9C3215A711E00BFDCE9 /* NewItemSharerViewCell.swift in Sources */,
 				A1AD44E8215176BA003CDE81 /* Item.swift in Sources */,
 				A1CF18802155D9AD003A641E /* Util.swift in Sources */,
 				A1AD44FA2151D355003CDE81 /* ItemDetailsTableViewCell.swift in Sources */,
 				A1ACC1B621555C4D00FFE668 /* PersonManager.swift in Sources */,
 				A1DC36F1214E304700E34BB6 /* AppDelegate.swift in Sources */,
+				A1C62F64215A1C9B0089F23E /* NewItemViewController.swift in Sources */,
 				A1AD44EB21517AB0003CDE81 /* Person.swift in Sources */,
 				A1AD44E221508623003CDE81 /* ReceiptTableViewController.swift in Sources */,
 				A1B21B2721591B73001E921A /* EditSharerViewController.swift in Sources */,

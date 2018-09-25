@@ -126,7 +126,9 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
         if let c = controller as? ItemTableViewController {
             c.addSharer(ID: person)
         }
-        
+        if let c = controller as? NewItemViewController {
+            c.addSharer(ID: person)
+        }
         navigationController?.popViewController(animated: true)
         
         //...
