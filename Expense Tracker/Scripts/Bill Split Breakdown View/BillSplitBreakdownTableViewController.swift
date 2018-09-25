@@ -15,18 +15,18 @@ class BillSplitBreakdownTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         items = [Item]()
         for item in receipt.items {
             if (item.GetSharerCost(sharer: sharer) != Float(0)) {
                 items! += [item]
             }
         }
-    }
-
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         tableView.reloadData()
         
@@ -44,7 +44,7 @@ class BillSplitBreakdownTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? BillSplitItemTableViewCell {
             let item = items[indexPath.row]
             
             cell.itemLabel.text  = item.name + " × " + String(item.GetNumShares(ID: sharer))
@@ -120,7 +120,7 @@ class BillSplitBreakdownTableViewController: UITableViewController {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedItemCell = sender as? ItemTableViewCell else {
+            guard let selectedItemCell = sender as? BillSplitItemTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             

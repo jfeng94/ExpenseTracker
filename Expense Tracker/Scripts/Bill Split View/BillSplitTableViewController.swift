@@ -18,6 +18,9 @@ class BillSplitTableViewController: UITableViewController {
         
         if (receipt != nil) {
             sharers = receipt.GetSharerIDs();
+            
+            // Sort by alphabetical order
+            sharers.sort(by: {PersonManager.instance.GetName(ID: $0) < PersonManager.instance.GetName(ID: $1)} )
         }
     }
     
@@ -26,42 +29,88 @@ class BillSplitTableViewController: UITableViewController {
         
         
         let screenshotItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.camera, target: self, action: #selector(self.screenshot));
-        navigationController?.navigationItem.leftBarButtonItem = screenshotItem;
+        self.navigationItem.rightBarButtonItem = screenshotItem
         
         tableView.reloadData()
     }
     
+//    @objc func screenshot() {
+//        let imageSize = tableView.bounds.size as CGSize;
+////        let imageSize = UIScreen.main.bounds.size as CGSize;
+//        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
+//        let context = UIGraphicsGetCurrentContext()
+//        for obj : AnyObject in UIApplication.shared.windows {
+//            if let window = obj as? UIWindow {
+//                if window.responds(to: #selector(getter: UIWindow.screen)) || window.screen == UIScreen.main {
+//                    // so we must first apply the layer's geometry to the graphics context
+//                    context!.saveGState();
+//                    // Center the context around the window's anchor point
+//                    context!.translateBy(x: window.center.x, y: window.center
+//                        .y);
+//                    // Apply the window's transform about the anchor point
+//                    context!.concatenate(window.transform);
+//                    // Offset by the portion of the bounds left of and above the anchor point
+//                    context!.translateBy(x: -window.bounds.size.width * window.layer.anchorPoint.x,
+//                                         y: -window.bounds.size.height * window.layer.anchorPoint.y);
+//
+//                    // Render the layer hierarchy to the current context
+//                    window.layer.render(in: context!)
+//
+//                    // Restore the context
+//                    context!.restoreGState();
+//                }
+//            }
+//        }
+//        if let image = UIGraphicsGetImageFromCurrentImageContext() {
+//            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+//        }
+//    }
+    
     @objc func screenshot() {
-        let imageSize = UIScreen.main.bounds.size as CGSize;
-        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
-        let context = UIGraphicsGetCurrentContext()
-        for obj : AnyObject in UIApplication.shared.windows {
-            if let window = obj as? UIWindow {
-                if window.responds(to: #selector(getter: UIWindow.screen)) || window.screen == UIScreen.main {
-                    // so we must first apply the layer's geometry to the graphics context
-                    context!.saveGState();
-                    // Center the context around the window's anchor point
-                    context!.translateBy(x: window.center.x, y: window.center
-                        .y);
-                    // Apply the window's transform about the anchor point
-                    context!.concatenate(window.transform);
-                    // Offset by the portion of the bounds left of and above the anchor point
-                    context!.translateBy(x: -window.bounds.size.width * window.layer.anchorPoint.x,
-                                         y: -window.bounds.size.height * window.layer.anchorPoint.y);
-                    
-                    // Render the layer hierarchy to the current context
-                    window.layer.render(in: context!)
-                    
-                    // Restore the context
-                    context!.restoreGState();
-                }
-            }
-        }
-        if let image = UIGraphicsGetImageFromCurrentImageContext() {
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        }
+        var image = UIImage();
+        UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, false, UIScreen.main.scale)
         
+        // save initial values
+        let savedContentOffset = self.tableView.contentOffset;
+        let savedFrame = self.tableView.frame;
+        let savedBackgroundColor = self.tableView.backgroundColor
         
+        // reset offset to top left point
+        self.tableView.contentOffset = CGPoint(x: 0, y: 0);
+        // set frame to content size
+        self.tableView.frame = CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height);
+        // remove background
+        self.tableView.backgroundColor = UIColor.clear
+        
+        // make temp view with scroll view content size
+        // a workaround for issue when image on ipad was drawn incorrectly
+        let tempView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height));
+        
+        // save superview
+        let tempSuperView = self.tableView.superview
+        // remove scrollView from old superview
+        self.tableView.removeFromSuperview()
+        // and add to tempView
+        tempView.addSubview(self.tableView)
+        
+        // render view
+        // drawViewHierarchyInRect not working correctly
+        tempView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        // and get image
+        image = UIGraphicsGetImageFromCurrentImageContext()!;
+        
+        // and return everything back
+        tempView.subviews[0].removeFromSuperview()
+        tempSuperView?.addSubview(self.tableView)
+        
+        // restore saved settings
+        self.tableView.contentOffset = savedContentOffset;
+        self.tableView.frame = savedFrame;
+        self.tableView.backgroundColor = savedBackgroundColor
+        
+        UIGraphicsEndImageContext();
+        
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
     
 //    override func didReceiveMemoryWarning() {

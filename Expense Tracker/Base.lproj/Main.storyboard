@@ -158,53 +158,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="60" id="eSV-02-c6W" userLabel="ItemCell" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="60" id="KPL-Dv-ACV" userLabel="ItemCell" customClass="BillSplitItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eSV-02-c6W" id="B4e-1I-Z9U" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KPL-Dv-ACV" id="a6K-ZG-hYe">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BZw-36-0oq">
-                                            <rect key="frame" x="16" y="11" width="288" height="36.5"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apw-vu-exD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="20.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nom Nom Green Tea" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1p-Ex-9jl">
-                                                            <rect key="frame" x="0.0" y="0.0" width="242.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$4.85" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0p-GF-CvT">
-                                                            <rect key="frame" x="242.5" y="0.0" width="45.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="with boba, half sugar, no ice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ff-5V-Xj7">
-                                                    <rect key="frame" x="0.0" y="20.5" width="288" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaU-MQ-qXA">
+                                            <rect key="frame" x="16" y="11" width="83" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEQ-dT-fNt">
+                                            <rect key="frame" x="259" y="11" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ip-3a-8pp">
+                                            <rect key="frame" x="16" y="32" width="288" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="BZw-36-0oq" secondAttribute="trailing" id="A3c-6M-ezX"/>
-                                        <constraint firstItem="BZw-36-0oq" firstAttribute="top" secondItem="B4e-1I-Z9U" secondAttribute="topMargin" id="eLE-GS-0PE"/>
-                                        <constraint firstItem="BZw-36-0oq" firstAttribute="leading" secondItem="B4e-1I-Z9U" secondAttribute="leadingMargin" id="fa5-EZ-gym"/>
+                                        <constraint firstItem="7ip-3a-8pp" firstAttribute="top" secondItem="PaU-MQ-qXA" secondAttribute="bottom" id="B5F-hf-pvo"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7ip-3a-8pp" secondAttribute="trailing" id="Ozj-Es-6Fh"/>
+                                        <constraint firstItem="7ip-3a-8pp" firstAttribute="leading" secondItem="a6K-ZG-hYe" secondAttribute="leadingMargin" id="Ppu-af-4rb"/>
+                                        <constraint firstItem="PaU-MQ-qXA" firstAttribute="leading" secondItem="a6K-ZG-hYe" secondAttribute="leadingMargin" id="RVT-0P-4XO"/>
+                                        <constraint firstItem="dEQ-dT-fNt" firstAttribute="top" secondItem="a6K-ZG-hYe" secondAttribute="topMargin" id="dz3-Kh-2I1"/>
+                                        <constraint firstItem="PaU-MQ-qXA" firstAttribute="top" secondItem="a6K-ZG-hYe" secondAttribute="topMargin" id="f3Z-Cn-4oU"/>
+                                        <constraint firstItem="dEQ-dT-fNt" firstAttribute="trailing" secondItem="a6K-ZG-hYe" secondAttribute="trailingMargin" id="lNQ-5z-Nfj"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="itemLabel" destination="L1p-Ex-9jl" id="9HR-Ft-1yg"/>
-                                    <outlet property="note" destination="5ff-5V-Xj7" id="KNl-pC-52R"/>
-                                    <outlet property="priceLabel" destination="l0p-GF-CvT" id="EaU-vR-Np5"/>
-                                    <segue destination="Cgr-2d-UE5" kind="show" identifier="ShowItemDetail" id="cCQ-Zb-Ltw"/>
+                                    <outlet property="itemLabel" destination="PaU-MQ-qXA" id="gSP-CL-abp"/>
+                                    <outlet property="note" destination="7ip-3a-8pp" id="Vp1-qd-neR"/>
+                                    <outlet property="priceLabel" destination="dEQ-dT-fNt" id="Vdd-kh-u1J"/>
+                                    <segue destination="Cgr-2d-UE5" kind="show" identifier="ShowItemDetail" id="vrc-cg-2fg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -216,7 +210,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZo-8s-cfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118" y="-2098"/>
+            <point key="canvasLocation" x="1117.5" y="-2098.9436619718308"/>
         </scene>
         <!--Vendor Details-->
         <scene sceneID="nM5-Fe-p9I">
@@ -395,7 +389,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="60" id="rK0-lm-mhd" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="60" id="rK0-lm-mhd" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="214" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rK0-lm-mhd" id="3XR-bK-Wl5">
@@ -435,6 +429,7 @@
                                     <outlet property="itemLabel" destination="m4Q-rs-4of" id="oQD-Wl-5wf"/>
                                     <outlet property="note" destination="ics-4m-Qpk" id="WxZ-eq-NcL"/>
                                     <outlet property="priceLabel" destination="la0-Pq-w3Q" id="ibJ-Re-5qN"/>
+                                    <segue destination="Cgr-2d-UE5" kind="show" identifier="ShowItemDetail" id="icm-Nv-CDm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1042,4 +1037,7 @@
         <image name="history" width="25" height="25"/>
         <image name="home" width="23" height="21"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="icm-Nv-CDm"/>
+    </inferredMetricsTieBreakers>
 </document>
