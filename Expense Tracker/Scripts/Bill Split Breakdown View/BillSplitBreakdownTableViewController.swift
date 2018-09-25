@@ -47,7 +47,7 @@ class BillSplitBreakdownTableViewController: UITableViewController {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell {
             let item = items[indexPath.row]
             
-            cell.itemLabel.text  = item.name
+            cell.itemLabel.text  = item.name + " × " + String(item.GetNumShares(ID: sharer))
             cell.note.text       = item.note
             
             let share = Util.GetValueAsCurrencyString(item.GetSharerCost(sharer: sharer))

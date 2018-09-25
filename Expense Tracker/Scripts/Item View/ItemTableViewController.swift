@@ -65,9 +65,7 @@ class ItemTableViewController: UITableViewController {
         else if (indexPath.row > 1 && indexPath.row < item.sharers.count + 2) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "itemSharerCell", for: indexPath) as? ItemSharerTableViewCell {
                 let sharer = item.sharers[indexPath.row - 2]
-                cell.profileImage.image = PersonManager.instance.GetPhoto(ID: sharer)
-                cell.sharerName.text    = PersonManager.instance.GetName(ID: sharer)
-                cell.sharerPrice.text   = Util.GetValueAsCurrencyString(item.GetSharerCost(sharer: sharer)) 
+                cell.configure(sharerID: sharer, item: item, controller: self)
                 return cell;
             }
         }
@@ -89,8 +87,11 @@ class ItemTableViewController: UITableViewController {
         if (indexPath.row == 1) {
             return 25
         }
+        if (indexPath.row == item.sharers.count + 2) {
+            return 60
+        }
         
-        return 60
+        return 100
     }
     
     // Override to support conditional editing of the table view.
@@ -116,6 +117,12 @@ class ItemTableViewController: UITableViewController {
         }    
     }
 
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if (indexPath.row > 1 && indexPath.row < item.sharers.count + 2) {
+            return nil
+        }
+        return indexPath
+    }
 
     /*
     // Override to support rearranging the table view.
@@ -146,30 +153,15 @@ class ItemTableViewController: UITableViewController {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
-//            guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
-//                fatalError("The selected cell is not being displayed by the table")
-//            }
-            
             itemDetailsViewController.item = item
             
         case "addNewSharer":
-            guard let nextController = segue.destination as? EditSharerViewController else {
+            guard let nextController = segue.destination as? PersonSelectionViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
 
-            nextController.isNewSharer = true
-//            guard let nextController = segue.destination as? PersonSelectionViewController else {
-//                fatalError("Unexpected destination: \(segue.destination)")
-//            }
-//
-//            nextController.excludedPeople = item.sharers
+            nextController.excludedPeople = item.sharers
         
-        case "editSharer":
-            guard let nextController = segue.destination as? EditSharerViewController else {
-                fatalError("Unexpected destination: \(segue.destination)")
-            }
-
-            nextController.isNewSharer = false
             
             
         default:
@@ -179,5 +171,9 @@ class ItemTableViewController: UITableViewController {
     
     func addSharer(ID: Int) {
         item.setSharerBuys(sharer: ID, numBought: 1)
+    }
+    
+    func reloadData() {
+        tableView.reloadData()
     }
 }

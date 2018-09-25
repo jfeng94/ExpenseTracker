@@ -62,6 +62,13 @@ class Item {
         return num
     }
     
+    func GetNumShares(ID: Int) -> Int {
+        if let numBought = sharerBuys[ID] as? Int {
+            return numBought
+        }
+        return 0
+    }
+    
     func GetUnitCost() -> Float {
         return price * (1 + (tax / 100) + (tip / 100))
     }
@@ -113,6 +120,19 @@ class Item {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Sharer methods
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    func incrementSharerBuys(sharer: Int) {
+        if let num = sharerBuys[sharer] as? Int {
+            sharerBuys[sharer] = num + 1
+        }
+    }
+    func decrementSharerBuys(sharer: Int) {
+        if let num = sharerBuys[sharer] as? Int {
+            if (num > 1) {
+                sharerBuys[sharer] = num - 1
+            }
+        }
+    }
+
     func setSharerBuys(sharer: Int, numBought: Int) {
         var canAdd = true;
         

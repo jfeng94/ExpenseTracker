@@ -124,7 +124,6 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
         let numControllers = navigationController?.viewControllers.count
         let controller = navigationController?.viewControllers[numControllers! - 2]
         if let c = controller as? ItemTableViewController {
-            print("adding sharer " + PersonManager.instance.GetName(ID: person))
             c.addSharer(ID: person)
         }
         
