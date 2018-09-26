@@ -48,6 +48,10 @@ class ReceiptHistoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        if receipts.count == 0 {
+            loadSampleReceipt()
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -57,16 +61,10 @@ class ReceiptHistoryTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-     
-        if receipts.count == 0 {
-            loadSampleReceipt()
-        }
         
         repopulateCells()
         
         tableView.reloadData()
-        
-        tableView.setContentOffset(CGPoint.init(x: 0, y: cells[0].getHeight()), animated: false)
         
         if (returnFromNewReceipt) {
             returnFromNewReceipt = false
@@ -84,9 +82,9 @@ class ReceiptHistoryTableViewController: UITableViewController {
 
         cells.removeAll()
         
-        var newReceipt = Cell()
-        newReceipt.kind = .NewReceipt
-        cells.append(newReceipt)
+//        var newReceipt = Cell()
+//        newReceipt.kind = .NewReceipt
+//        cells.append(newReceipt)
         
         receipts.sort(by: {$0.date > $1.date } )
         
@@ -172,6 +170,7 @@ class ReceiptHistoryTableViewController: UITableViewController {
                 let receipt = receipts[c.receiptIdx];
                 cell.vendorName.text = receipt.vendorName
                 cell.date.text       = Util.FormatDate(receipt.date)
+                cell.price.text      = Util.GetValueAsCurrencyString(receipt.GetTotalCost())
                 return cell;
             }
             
@@ -188,25 +187,26 @@ class ReceiptHistoryTableViewController: UITableViewController {
     }
 
     
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        if (cells[indexPath.row].kind == .Receipt) {
+            return true
+        }
+        
+        return false
     }
-    */
-
-    /*
+ 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            receipts.remove(at: cells[indexPath.row].receiptIdx)
+            repopulateCells()
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.

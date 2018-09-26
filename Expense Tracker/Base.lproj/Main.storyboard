@@ -75,7 +75,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Factory Tea Bar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xs8-Jg-Eax">
-                                            <rect key="frame" x="16" y="11" width="288" height="21"/>
+                                            <rect key="frame" x="16" y="11" width="119" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -86,18 +86,26 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEa-TH-C30">
+                                            <rect key="frame" x="259" y="11" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="gEa-TH-C30" firstAttribute="trailing" secondItem="9O3-y2-zf4" secondAttribute="trailingMargin" id="3LF-Xy-pho"/>
                                         <constraint firstItem="H4C-rY-aL5" firstAttribute="leading" secondItem="9O3-y2-zf4" secondAttribute="leadingMargin" id="C3q-vb-Uc3"/>
-                                        <constraint firstItem="Xs8-Jg-Eax" firstAttribute="top" secondItem="9O3-y2-zf4" secondAttribute="topMargin" id="alw-ND-ERI"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Xs8-Jg-Eax" secondAttribute="trailing" id="mxy-m0-86Z"/>
+                                        <constraint firstItem="Xs8-Jg-Eax" firstAttribute="top" secondItem="9O3-y2-zf4" secondAttribute="topMargin" id="ETQ-yf-Zdz"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="H4C-rY-aL5" secondAttribute="trailing" id="nM9-gt-Ys0"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="H4C-rY-aL5" secondAttribute="bottom" id="oKz-fw-ZNs"/>
-                                        <constraint firstItem="Xs8-Jg-Eax" firstAttribute="leading" secondItem="9O3-y2-zf4" secondAttribute="leadingMargin" id="p9H-62-A6a"/>
+                                        <constraint firstItem="Xs8-Jg-Eax" firstAttribute="leading" secondItem="9O3-y2-zf4" secondAttribute="leadingMargin" id="sKz-cp-IBG"/>
+                                        <constraint firstItem="gEa-TH-C30" firstAttribute="top" secondItem="9O3-y2-zf4" secondAttribute="topMargin" id="w8a-Ta-H9O"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="date" destination="H4C-rY-aL5" id="BPQ-kU-r79"/>
+                                    <outlet property="price" destination="gEa-TH-C30" id="GCU-B4-8YB"/>
                                     <outlet property="vendorName" destination="Xs8-Jg-Eax" id="trf-rK-Ins"/>
                                     <segue destination="hge-QN-kvu" kind="show" identifier="showReceipt" id="3Xc-2w-vRU"/>
                                 </connections>
@@ -109,7 +117,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="+ Add New Receipt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fKF-RI-BY3">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Add your first receipt!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fKF-RI-BY3">
                                             <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -132,7 +140,13 @@
                             <outlet property="delegate" destination="YLq-zV-7XO" id="WDW-dR-Zp5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="History" id="iCY-Dc-3qn"/>
+                    <navigationItem key="navigationItem" title="History" id="iCY-Dc-3qn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="t3A-Ac-bfs">
+                            <connections>
+                                <segue destination="rKl-1O-FEu" kind="presentation" identifier="newReceipt" id="LMG-KL-Vdm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="hge-QN-kvu" kind="show" identifier="editNewReceipt" animates="NO" id="o6j-EK-LCe"/>
                     </connections>
@@ -1243,7 +1257,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Buys" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gDT-yT-6CD">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Buyers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gDT-yT-6CD">
                                             <rect key="frame" x="16" y="0.0" width="288" height="25"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -1431,8 +1445,9 @@
         <image name="history" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="LMG-KL-Vdm"/>
         <segue reference="S2j-Zw-XWW"/>
-        <segue reference="vrc-cg-2fg"/>
+        <segue reference="icm-Nv-CDm"/>
         <segue reference="o6j-EK-LCe"/>
     </inferredMetricsTieBreakers>
 </document>

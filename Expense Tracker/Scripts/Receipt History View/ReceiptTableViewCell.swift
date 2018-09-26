@@ -11,6 +11,7 @@ import UIKit
 class ReceiptTableViewCell: UITableViewCell {
     @IBOutlet weak var vendorName: UILabel!
     @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var price: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

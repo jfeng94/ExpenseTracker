@@ -26,6 +26,7 @@ class NewReceiptViewController: ReceiptVendorDetailsViewController {
     override func viewWillAppear(_ animated: Bool) {
         receipt = Receipt.init(vendorName: "", items: [], date: Date.init())
         
+        refreshFields()
         super.viewWillAppear(animated)
     }
     
