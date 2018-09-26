@@ -11,36 +11,11 @@ import os.log
 
 class ReceiptTableViewController: UITableViewController {
     var receipt: Receipt!
-    var enteredFromNewItem = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadSampleReceipt()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        if (enteredFromNewItem) {
-            tableView.reloadData()
-            print("row is " + String(receipt.items.count + 1))
-            print("num cells: " + String(tableView.numberOfRows(inSection: 0)))
-            if let cell = tableView.cellForRow(at: IndexPath.init(row: receipt.items.count + 1, section: 0)) {
-                performSegue(withIdentifier: "ShowItemDetail", sender: cell)
-            }
-            else if (tableView.visibleCells.count > 2){
-                let idx = tableView.visibleCells.count - 2
-                let cell = tableView.visibleCells[idx]
-                
-                print("index is " + String(idx))
-                performSegue(withIdentifier: "ShowItemDetail", sender: cell)
-            }
-            else {
-                print("Cell is nil?")
-            }
-        }
-        enteredFromNewItem = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -197,7 +172,6 @@ class ReceiptTableViewController: UITableViewController {
             let newIndexPath = IndexPath(row: receipt.items.count + 2, section: 0)
             receipt.items.append(item)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
-            enteredFromNewItem = true
         }
     }
     
@@ -245,8 +219,12 @@ class ReceiptTableViewController: UITableViewController {
                 billSplitTableViewController.receipt = receipt;
             
         case "newItem":
-            guard let itemDetailsViewController = segue.destination as? NewItemViewController else {
+            guard let nav = segue.destination as? UINavigationController else {
                 fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let itemDetailsViewController = nav.viewControllers[0] as? NewItemViewController else {
+                fatalError("Not a NewItemViewController)")
             }
             
             itemDetailsViewController.item = Item.init(name: "")

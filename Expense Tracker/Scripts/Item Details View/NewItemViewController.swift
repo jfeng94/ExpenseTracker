@@ -8,55 +8,91 @@
 
 import UIKit
 
-class NewItemViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var notes: UITextField!
-    @IBOutlet weak var price: UITextField!
-    @IBOutlet weak var tax: UITextField!
-    @IBOutlet weak var tip: UITextField!
-    @IBOutlet weak var tag: UITextField!
+class NewItemViewController: UITableViewController {
+    
+    struct Cell {
+        enum Kind {
+            case Details
+            case Header
+            case Sharer
+            case AddNewSharer
+        }
+        var kind = Cell.Kind.Details
+        var sharersIdx = -1
+        
+        func getIdentifier() -> String {
+            switch (self.kind) {
+            case .Details:
+                return "detailsCell"
+            case .Header:
+                return "headerCell"
+            case .Sharer:
+                return "sharerCell"
+            case .AddNewSharer:
+                return "newSharerCell"
+            }
+        }
+        
+        func getHeight() -> CGFloat {
+            switch (self.kind) {
+            case .Details:
+                return 268
+            case .Header:
+                return 25
+            case .Sharer:
+                return 90
+            case .AddNewSharer:
+                return 60
+            }
+        }
+    }
+    
+    var cells = [Cell]()
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    @IBOutlet weak var table: UITableView!
-    
     var item: Item!
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: ViewController Methods
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        table.delegate = self
-        table.dataSource = self
-        
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(NewItemViewController.viewTapped(gestureRecognizer:)))
-//        
-//        view.addGestureRecognizer(tapGesture)
-        
-        var i = 0
-        name.delegate  = self; name.tag  = i; i = i + 1
-        notes.delegate = self; notes.tag = i; i = i + 1
-        price.delegate = self; price.tag = i; i = i + 1
-        tax.delegate   = self; tax.tag   = i; i = i + 1
-        tip.delegate   = self; tip.tag   = i; i = i + 1
-        tag.delegate   = self; tag.tag   = i; i = i + 1
-        
-        name.addTarget(self, action: #selector(NewItemViewController.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
-        
-        price.keyboardType = .decimalPad
-        tax.keyboardType   = .decimalPad
-        tip.keyboardType   = .decimalPad
         
         if (saveButton != nil) {
             saveButton.isEnabled = false
         }
-        updateFields()
-        updateSaveButtonState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        table.reloadData()
+        cells.removeAll()
+        
+        var details = Cell()
+        details.kind = .Details
+        cells.append(details)
+        
+        var header = Cell()
+        header.kind = .Header
+        cells.append(header)
+        
+        if (item.sharers.count > 0) {
+            for i in 0...item.sharers.count - 1 {
+                var sharerCell = Cell()
+                sharerCell.kind = .Sharer
+                sharerCell.sharersIdx = i
+                
+                cells.append(sharerCell)
+            }
+        }
+        
+        var newSharer = Cell()
+        newSharer.kind = .AddNewSharer
+        cells.append(newSharer)
+        
+        
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,190 +100,108 @@ class NewItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Try to find next responder
-        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            nextField.becomeFirstResponder()
-        } else {
-            // Not found, so remove keyboard.
-            textField.resignFirstResponder()
-        }
-        // Do not add a line break
-        return false
-    }
-    
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if (textField == price || textField == tax || textField == tip) {
-            if (textField.text == "0.00") {
-                textField.text = ""
-            }
-        }
-    }
-    
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        updateSaveButtonState()
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        updateItem()
-        updateFields()
-        updateSaveButtonState()
-    }
-    
-    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
-        view.endEditing(true);
-    }
-    
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Actions
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        _ = navigationController?.popViewController(animated: true)
+//        _ = navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - Table View Delegate Methods
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return item.sharers.count + 1
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cells.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.row < item.sharers.count) {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "itemSharerCell", for: indexPath) as? NewItemSharerViewCell {
-                let sharer = item.sharers[indexPath.row]
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let c = cells[indexPath.row]
+        switch (c.kind) {
+        case Cell.Kind.Sharer:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: c.getIdentifier(), for: indexPath) as? NewItemSharerViewCell {
+                let sharer = item.sharers[c.sharersIdx]
                 cell.configure(sharerID: sharer, item: item, controller: self)
                 return cell;
             }
+            
+        case Cell.Kind.Details:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: c.getIdentifier(), for: indexPath) as? NewItemDetailsTableViewCell {
+                cell.configure(item: item, controller: self)
+                return cell;
+            }
+            
+        
+        default:
+            return tableView.dequeueReusableCell(withIdentifier: c.getIdentifier(), for: indexPath)
         }
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "newSharerCell", for: indexPath)
-            return cell;
-        }
         
-        
-        
-        let cell = UITableViewCell()
-        return cell
+        return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath.row == item.sharers.count) {
-            return 60
-        }
-        
-        return 100
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cells[indexPath.row].getHeight()
     }
     
     // Override to support conditional editing of the table view.
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if (indexPath.row < item.sharers.count) {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        switch (cells[indexPath.row].kind) {
+        case Cell.Kind.Sharer:
             return true
+        
+        default:
+            return false
         }
-        return false
     }
     
     // Override to support editing the table view.
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            item.sharers.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
+            let c = cells[indexPath.row]
+            if c.kind == .Sharer {
+                // Delete the row from the data source
+                item.sharers.remove(at: c.sharersIdx)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
+            }
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     
-//    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-//        if (indexPath.row < item.sharers.count) {
-//            return nil
-//        }
-//        return indexPath
-//    }
-
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        view.endEditing(true)
+        
+        switch (cells[indexPath.row].kind) {
+        case .AddNewSharer:
+            return indexPath
+            
+        default:
+            return nil
+        }
+    }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Private methods
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private func updateSaveButtonState() {
+    func updateSaveButtonState() {
         if (saveButton != nil) {
-            let text = name.text ?? ""
-            saveButton.isEnabled = !text.isEmpty
+            saveButton.isEnabled = (!item.name .isEmpty && item.sharers.count != 0)
         }
     }
-    
-    private func updateFields() {
-        if (item != nil) {
-            name.text  = item.name
-            notes.text = item.note
-            price.text = Util.Format2Dec(item.price)
-            tax.text   = Util.Format2Dec(item.tax)
-            tip.text   = Util.Format2Dec(item.tip)
-            tag.text   = item.sortingTag
-        }
-        else {
-            fatalError("No item!")
-        }
-    }
-    
-    private func updateItem() {
-        if (item != nil) {
-            if let s = name.text {
-                item.name = s
-            }
-            
-            if let s = notes.text {
-                item.note = s
-            }
-            
-            if let s = price.text {
-                if let p = Float(s) {
-                    item.price = p
-                }
-                else if (s.isEmpty) {
-                    item.price = Float(0);
-                }
-            }
-            if let s = tax.text {
-                if let t = Float(s) {
-                    item.tax = t
-                }
-                else if (s.isEmpty) {
-                    item.tax = Float(0);
-                }
-            }
-            
-            if let s = tip.text {
-                if let t = Float(s) {
-                    item.tip = t
-                }
-                else if (s.isEmpty) {
-                    item.tip = Float(0);
-                }
-            }
-            
-            if let s = tag.text {
-                item.sortingTag = s
-            }
-        }
-    }
-    
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - Navigation
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        
-        if let button = sender as? UIBarButtonItem {
-            if (button == saveButton) {
-                return
-            }
-        }
         
         switch(segue.identifier ?? "") {
         case "addNewSharer":
@@ -255,8 +209,14 @@ class NewItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
+            nextController.excludedPeople = item.sharers
+        
+        case "itemSaved":
+            // Do nothing
+            print("Item saved!")
+            
         default:
-            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
+            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier)) from \(String(describing: sender.debugDescription))")
         }
     }
     
@@ -265,6 +225,6 @@ class NewItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func reloadData() {
-        table.reloadData()
+        tableView.reloadData()
     }
 }

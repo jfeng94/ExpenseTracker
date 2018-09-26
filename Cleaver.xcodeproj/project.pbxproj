@@ -25,6 +25,7 @@
 		A1C5B9C3215A711E00BFDCE9 /* NewItemSharerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C5B9C2215A711E00BFDCE9 /* NewItemSharerViewCell.swift */; };
 		A1C62F61215A110C0089F23E /* BillSplitItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C62F60215A110C0089F23E /* BillSplitItemTableViewCell.swift */; };
 		A1C62F64215A1C9B0089F23E /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C62F63215A1C9B0089F23E /* NewItemViewController.swift */; };
+		A1CBE639215B1D950059DE5E /* NewItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CBE638215B1D950059DE5E /* NewItemDetailsTableViewCell.swift */; };
 		A1CF187A2155B5B9003A641E /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */; };
 		A1CF187E2155D653003A641E /* BillSplitBreakdownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */; };
 		A1CF18802155D9AD003A641E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF187F2155D9AD003A641E /* Util.swift */; };
@@ -65,6 +66,7 @@
 		A1C5B9C2215A711E00BFDCE9 /* NewItemSharerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemSharerViewCell.swift; sourceTree = "<group>"; };
 		A1C62F60215A110C0089F23E /* BillSplitItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitItemTableViewCell.swift; sourceTree = "<group>"; };
 		A1C62F63215A1C9B0089F23E /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
+		A1CBE638215B1D950059DE5E /* NewItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitBreakdownTableViewController.swift; sourceTree = "<group>"; };
 		A1CF187F2155D9AD003A641E /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Scripts/Util.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */,
 				A1C62F63215A1C9B0089F23E /* NewItemViewController.swift */,
 				A1C5B9C2215A711E00BFDCE9 /* NewItemSharerViewCell.swift */,
+				A1CBE638215B1D950059DE5E /* NewItemDetailsTableViewCell.swift */,
 			);
 			path = "Item Details View";
 			sourceTree = "<group>";
@@ -312,7 +315,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A1DC36E8214E304700E34BB6 /* Build configuration list for PBXProject "Expense Tracker" */;
+			buildConfigurationList = A1DC36E8214E304700E34BB6 /* Build configuration list for PBXProject "Cleaver" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -374,6 +377,7 @@
 				A1CF18802155D9AD003A641E /* Util.swift in Sources */,
 				A1AD44FA2151D355003CDE81 /* ItemDetailsTableViewCell.swift in Sources */,
 				A1ACC1B621555C4D00FFE668 /* PersonManager.swift in Sources */,
+				A1CBE639215B1D950059DE5E /* NewItemDetailsTableViewCell.swift in Sources */,
 				A1DC36F1214E304700E34BB6 /* AppDelegate.swift in Sources */,
 				A1C62F64215A1C9B0089F23E /* NewItemViewController.swift in Sources */,
 				A1AD44EB21517AB0003CDE81 /* Person.swift in Sources */,
@@ -615,7 +619,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1DC36E8214E304700E34BB6 /* Build configuration list for PBXProject "Expense Tracker" */ = {
+		A1DC36E8214E304700E34BB6 /* Build configuration list for PBXProject "Cleaver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1DC370A214E304B00E34BB6 /* Debug */,

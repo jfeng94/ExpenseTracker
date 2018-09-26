@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Expense Tracker.xcodeproj">
+      location = "self:/Users/jerryfeng/Documents/XCode Projects/Expense Tracker/Cleaver.xcodeproj">
    </FileRef>
 </Workspace>
