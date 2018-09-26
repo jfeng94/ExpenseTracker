@@ -26,6 +26,9 @@
 		A1C62F61215A110C0089F23E /* BillSplitItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C62F60215A110C0089F23E /* BillSplitItemTableViewCell.swift */; };
 		A1C62F64215A1C9B0089F23E /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C62F63215A1C9B0089F23E /* NewItemViewController.swift */; };
 		A1C9176E215B770200759763 /* ReceiptInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C9176D215B770200759763 /* ReceiptInfoTableViewCell.swift */; };
+		A1C91771215B808B00759763 /* ReceiptHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C91770215B808B00759763 /* ReceiptHistoryTableViewController.swift */; };
+		A1C91773215BA7F000759763 /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C91772215BA7F000759763 /* ReceiptTableViewCell.swift */; };
+		A1C91775215BB9FD00759763 /* NewReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C91774215BB9FD00759763 /* NewReceiptViewController.swift */; };
 		A1CBE639215B1D950059DE5E /* NewItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CBE638215B1D950059DE5E /* NewItemDetailsTableViewCell.swift */; };
 		A1CF187A2155B5B9003A641E /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */; };
 		A1CF187E2155D653003A641E /* BillSplitBreakdownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */; };
@@ -68,6 +71,9 @@
 		A1C62F60215A110C0089F23E /* BillSplitItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitItemTableViewCell.swift; sourceTree = "<group>"; };
 		A1C62F63215A1C9B0089F23E /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		A1C9176D215B770200759763 /* ReceiptInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInfoTableViewCell.swift; sourceTree = "<group>"; };
+		A1C91770215B808B00759763 /* ReceiptHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryTableViewController.swift; sourceTree = "<group>"; };
+		A1C91772215BA7F000759763 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
+		A1C91774215BB9FD00759763 /* NewReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReceiptViewController.swift; sourceTree = "<group>"; };
 		A1CBE638215B1D950059DE5E /* NewItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitBreakdownTableViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A1208C3C21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift */,
+				A1C91774215BB9FD00759763 /* NewReceiptViewController.swift */,
 			);
 			path = "Receipt Vendor Details View";
 			sourceTree = "<group>";
@@ -182,6 +189,15 @@
 			path = "Edit Sharer View";
 			sourceTree = "<group>";
 		};
+		A1C9176F215B806B00759763 /* Receipt History View */ = {
+			isa = PBXGroup;
+			children = (
+				A1C91770215B808B00759763 /* ReceiptHistoryTableViewController.swift */,
+				A1C91772215BA7F000759763 /* ReceiptTableViewCell.swift */,
+			);
+			path = "Receipt History View";
+			sourceTree = "<group>";
+		};
 		A1CF18782155B5A4003A641E /* Item Details View */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +212,7 @@
 		A1CF187B2155B5CF003A641E /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				A1C9176F215B806B00759763 /* Receipt History View */,
 				A1B21B2521591B46001E921A /* Edit Sharer View */,
 				A1098C6B215854870081FAD8 /* Person Selection View */,
 				A1CF187C2155D600003A641E /* Bill Split Breakdown View */,
@@ -362,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C91773215BA7F000759763 /* ReceiptTableViewCell.swift in Sources */,
 				A1098C6F215859D40081FAD8 /* PersonTableViewCell.swift in Sources */,
 				A1AD44E62151764B003CDE81 /* Receipt.swift in Sources */,
 				A1AD44F821519F2F003CDE81 /* ItemSharerTableViewCell.swift in Sources */,
@@ -371,6 +389,7 @@
 				A1C9176E215B770200759763 /* ReceiptInfoTableViewCell.swift in Sources */,
 				A1208C3D21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift in Sources */,
 				A1208C3A2153064400D9D39D /* BillSplitTableViewController.swift in Sources */,
+				A1C91775215BB9FD00759763 /* NewReceiptViewController.swift in Sources */,
 				A1C62F61215A110C0089F23E /* BillSplitItemTableViewCell.swift in Sources */,
 				A1DC36F5214E304700E34BB6 /* SecondViewController.swift in Sources */,
 				A1AD44DE21507F91003CDE81 /* VendorTableViewCell.swift in Sources */,
@@ -381,6 +400,7 @@
 				A1CF18802155D9AD003A641E /* Util.swift in Sources */,
 				A1AD44FA2151D355003CDE81 /* ItemDetailsTableViewCell.swift in Sources */,
 				A1ACC1B621555C4D00FFE668 /* PersonManager.swift in Sources */,
+				A1C91771215B808B00759763 /* ReceiptHistoryTableViewController.swift in Sources */,
 				A1CBE639215B1D950059DE5E /* NewItemDetailsTableViewCell.swift in Sources */,
 				A1DC36F1214E304700E34BB6 /* AppDelegate.swift in Sources */,
 				A1C62F64215A1C9B0089F23E /* NewItemViewController.swift in Sources */,

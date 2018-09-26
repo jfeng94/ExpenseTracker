@@ -105,7 +105,7 @@ class ReceiptVendorDetailsViewController: UIViewController, UITextFieldDelegate 
         }
     }
     
-    private func refreshFields() {
+    func refreshFields() {
         if (receipt != nil) {
             vendorName.text = receipt.vendorName
             

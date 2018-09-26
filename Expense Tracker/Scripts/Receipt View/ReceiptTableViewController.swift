@@ -14,8 +14,6 @@ class ReceiptTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadSampleReceipt()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,43 +27,6 @@ class ReceiptTableViewController: UITableViewController {
 //        super.didReceiveMemoryWarning()
 //        // Dispose of any resources that can be recreated.
 //    }
-
-    
-    //MARK: Private Methods
-    func loadSampleReceipt() {
-        let jerry = PersonManager.instance.CreateNewPerson()
-        let grace = PersonManager.instance.CreateNewPerson()
-        let tony  = PersonManager.instance.CreateNewPerson()
-        let aris  = PersonManager.instance.CreateNewPerson()
-        let tim   = PersonManager.instance.CreateNewPerson()
-        
-        PersonManager.instance.SetName(ID: jerry, name: "Jerry")
-        PersonManager.instance.SetName(ID: grace, name: "Grace")
-        PersonManager.instance.SetName(ID: tony,  name: "Tony")
-        PersonManager.instance.SetName(ID: aris,  name: "Aris")
-        PersonManager.instance.SetName(ID: tim,   name: "Tim")
-        
-        PersonManager.instance.SetPhoto(ID: jerry, photo: UIImage(named: "Jerry"))
-        PersonManager.instance.SetPhoto(ID: grace, photo: UIImage(named: "Grace"))
-        PersonManager.instance.SetPhoto(ID: tony,  photo: UIImage(named: "Tony"))
-        PersonManager.instance.SetPhoto(ID: aris,  photo: UIImage(named: "Aris"))
-        PersonManager.instance.SetPhoto(ID: tim,   photo: UIImage(named: "Tim"))
-        
-        let nngt1 = NSMutableDictionary(); nngt1[jerry] = 1; nngt1[aris] = 2
-        let nngt2 = NSMutableDictionary(); nngt2[tony]  = 1;
-        let rmt   = NSMutableDictionary();   rmt[grace] = 1;
-        let pc1   = NSMutableDictionary();   pc1[jerry] = 1; pc1[grace] = 1
-        let pc2   = NSMutableDictionary();   pc2[tim]   = 2;
-        var items = [Item]()
-        items += [Item.init(name: "Nom Nom Green Tea", note: "Boba, half sugar, no ice",       price: 4.45, tax: 9.25, tip: 0.0, sortingTag: "Drink",           sharers: [jerry, aris],  sharerBuys: nngt1)]
-        items += [Item.init(name: "Nom Nom Green Tea", note: "Hal-f sugar, no ice, big straw", price: 3.95, tax: 9.25, tip: 0.0, sortingTag: "Drink",           sharers: [tony],         sharerBuys: nngt2)]
-        items += [Item.init(name: "Rose Milk Tea",     note: "Bobes",                          price: 4.45, tax: 9.25, tip: 0.0, sortingTag: "Life sustenance", sharers: [grace],        sharerBuys: rmt)]
-        items += [Item.init(name: "Popcorn Chicken",   note: "Mild",                           price: 4.95, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [jerry, grace], sharerBuys: pc1)]
-        items += [Item.init(name: "Popcorn Chicken",   note: "Spice me a new butthole",        price: 4.95, tax: 9.25, tip: 0.0, sortingTag: "C H I C K E N",   sharers: [tim],          sharerBuys: pc2)]
-        
-        receipt = Receipt.init(vendorName: "Factory Tea Bar", items: items, date : Date.init())
-    }
-    
     
     
     // MARK: - Table view data source
