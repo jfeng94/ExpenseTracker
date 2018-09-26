@@ -25,6 +25,7 @@
 		A1C5B9C3215A711E00BFDCE9 /* NewItemSharerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C5B9C2215A711E00BFDCE9 /* NewItemSharerViewCell.swift */; };
 		A1C62F61215A110C0089F23E /* BillSplitItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C62F60215A110C0089F23E /* BillSplitItemTableViewCell.swift */; };
 		A1C62F64215A1C9B0089F23E /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C62F63215A1C9B0089F23E /* NewItemViewController.swift */; };
+		A1C9176E215B770200759763 /* ReceiptInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C9176D215B770200759763 /* ReceiptInfoTableViewCell.swift */; };
 		A1CBE639215B1D950059DE5E /* NewItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CBE638215B1D950059DE5E /* NewItemDetailsTableViewCell.swift */; };
 		A1CF187A2155B5B9003A641E /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */; };
 		A1CF187E2155D653003A641E /* BillSplitBreakdownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */; };
@@ -66,18 +67,19 @@
 		A1C5B9C2215A711E00BFDCE9 /* NewItemSharerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemSharerViewCell.swift; sourceTree = "<group>"; };
 		A1C62F60215A110C0089F23E /* BillSplitItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitItemTableViewCell.swift; sourceTree = "<group>"; };
 		A1C62F63215A1C9B0089F23E /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
+		A1C9176D215B770200759763 /* ReceiptInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A1CBE638215B1D950059DE5E /* NewItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitBreakdownTableViewController.swift; sourceTree = "<group>"; };
 		A1CF187F2155D9AD003A641E /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Scripts/Util.swift; sourceTree = "<group>"; };
-		A1DC36ED214E304700E34BB6 /* Expense Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1DC36ED214E304700E34BB6 /* Cleaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC36F0214E304700E34BB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DC36F4214E304700E34BB6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		A1DC36F7214E304700E34BB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1DC36F9214E304B00E34BB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1DC36FC214E304B00E34BB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1DC36FE214E304B00E34BB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1DC3703214E304B00E34BB6 /* Expense TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Expense TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1DC3703214E304B00E34BB6 /* CleaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleaverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC3707214E304B00E34BB6 /* Expense_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense_TrackerTests.swift; sourceTree = "<group>"; };
 		A1DC3709214E304B00E34BB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				A1208C392153064400D9D39D /* BillSplitTableViewController.swift */,
+				A1C9176D215B770200759763 /* ReceiptInfoTableViewCell.swift */,
 			);
 			path = "Bill Split View";
 			sourceTree = "<group>";
@@ -228,8 +231,8 @@
 		A1DC36EE214E304700E34BB6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1DC36ED214E304700E34BB6 /* Expense Tracker.app */,
-				A1DC3703214E304B00E34BB6 /* Expense TrackerTests.xctest */,
+				A1DC36ED214E304700E34BB6 /* Cleaver.app */,
+				A1DC3703214E304B00E34BB6 /* CleaverTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,9 +264,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1DC36EC214E304700E34BB6 /* Expense Tracker */ = {
+		A1DC36EC214E304700E34BB6 /* Cleaver */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1DC370C214E304B00E34BB6 /* Build configuration list for PBXNativeTarget "Expense Tracker" */;
+			buildConfigurationList = A1DC370C214E304B00E34BB6 /* Build configuration list for PBXNativeTarget "Cleaver" */;
 			buildPhases = (
 				A1DC36E9214E304700E34BB6 /* Sources */,
 				A1DC36EA214E304700E34BB6 /* Frameworks */,
@@ -273,14 +276,14 @@
 			);
 			dependencies = (
 			);
-			name = "Expense Tracker";
+			name = Cleaver;
 			productName = "Expense Tracker";
-			productReference = A1DC36ED214E304700E34BB6 /* Expense Tracker.app */;
+			productReference = A1DC36ED214E304700E34BB6 /* Cleaver.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A1DC3702214E304B00E34BB6 /* Expense TrackerTests */ = {
+		A1DC3702214E304B00E34BB6 /* CleaverTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1DC370F214E304B00E34BB6 /* Build configuration list for PBXNativeTarget "Expense TrackerTests" */;
+			buildConfigurationList = A1DC370F214E304B00E34BB6 /* Build configuration list for PBXNativeTarget "CleaverTests" */;
 			buildPhases = (
 				A1DC36FF214E304B00E34BB6 /* Sources */,
 				A1DC3700214E304B00E34BB6 /* Frameworks */,
@@ -291,9 +294,9 @@
 			dependencies = (
 				A1DC3705214E304B00E34BB6 /* PBXTargetDependency */,
 			);
-			name = "Expense TrackerTests";
+			name = CleaverTests;
 			productName = "Expense TrackerTests";
-			productReference = A1DC3703214E304B00E34BB6 /* Expense TrackerTests.xctest */;
+			productReference = A1DC3703214E304B00E34BB6 /* CleaverTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -328,8 +331,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1DC36EC214E304700E34BB6 /* Expense Tracker */,
-				A1DC3702214E304B00E34BB6 /* Expense TrackerTests */,
+				A1DC36EC214E304700E34BB6 /* Cleaver */,
+				A1DC3702214E304B00E34BB6 /* CleaverTests */,
 			);
 		};
 /* End PBXProject section */
@@ -365,6 +368,7 @@
 				A1098C6D215854B20081FAD8 /* PersonSelectionViewController.swift in Sources */,
 				A1CF187A2155B5B9003A641E /* ItemDetailsViewController.swift in Sources */,
 				A1AD44F02151998C003CDE81 /* ItemTableViewController.swift in Sources */,
+				A1C9176E215B770200759763 /* ReceiptInfoTableViewCell.swift in Sources */,
 				A1208C3D21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift in Sources */,
 				A1208C3A2153064400D9D39D /* BillSplitTableViewController.swift in Sources */,
 				A1C62F61215A110C0089F23E /* BillSplitItemTableViewCell.swift in Sources */,
@@ -399,7 +403,7 @@
 /* Begin PBXTargetDependency section */
 		A1DC3705214E304B00E34BB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A1DC36EC214E304700E34BB6 /* Expense Tracker */;
+			target = A1DC36EC214E304700E34BB6 /* Cleaver */;
 			targetProxy = A1DC3704214E304B00E34BB6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -592,7 +596,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expense Tracker.app/Expense Tracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cleaver.app/Cleaver";
 			};
 			name = Debug;
 		};
@@ -612,7 +616,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expense Tracker.app/Expense Tracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cleaver.app/Cleaver";
 			};
 			name = Release;
 		};
@@ -628,7 +632,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1DC370C214E304B00E34BB6 /* Build configuration list for PBXNativeTarget "Expense Tracker" */ = {
+		A1DC370C214E304B00E34BB6 /* Build configuration list for PBXNativeTarget "Cleaver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1DC370D214E304B00E34BB6 /* Debug */,
@@ -637,7 +641,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1DC370F214E304B00E34BB6 /* Build configuration list for PBXNativeTarget "Expense TrackerTests" */ = {
+		A1DC370F214E304B00E34BB6 /* Build configuration list for PBXNativeTarget "CleaverTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1DC3710214E304B00E34BB6 /* Debug */,

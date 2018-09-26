@@ -88,7 +88,7 @@
         <scene sceneID="AAC-TL-U8i">
             <objects>
                 <tableViewController title="Bill Split" id="uK0-sN-fbn" customClass="BillSplitTableViewController" customModule="Expense_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IXn-bD-Ib9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IXn-bD-Ib9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -97,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2SP-fy-cPB" id="NGN-1y-qdO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jerry" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yh-qw-fJO">
@@ -138,6 +138,40 @@
                                     <segue destination="G1C-Pz-PeX" kind="show" identifier="Breakdown" id="0xv-je-9fM"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" rowHeight="60" id="Fbc-Pz-CSl" userLabel="Receipt Info Cell" customClass="ReceiptInfoTableViewCell" customModule="Cleaver">
+                                <rect key="frame" x="0.0" y="88" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fbc-Pz-CSl" id="OKd-a1-6vZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vendor Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bB-Dn-AP6">
+                                            <rect key="frame" x="16" y="11" width="288" height="33"/>
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="September 23, 2018 09:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNz-Dn-UdX">
+                                            <rect key="frame" x="16" y="44" width="288" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FNz-Dn-UdX" firstAttribute="top" secondItem="6bB-Dn-AP6" secondAttribute="bottom" id="8IY-Pe-yk2"/>
+                                        <constraint firstItem="FNz-Dn-UdX" firstAttribute="leading" secondItem="OKd-a1-6vZ" secondAttribute="leadingMargin" id="F4h-dp-IUK"/>
+                                        <constraint firstItem="6bB-Dn-AP6" firstAttribute="trailing" secondItem="OKd-a1-6vZ" secondAttribute="trailingMargin" id="PfV-u5-Adq"/>
+                                        <constraint firstItem="FNz-Dn-UdX" firstAttribute="trailing" secondItem="OKd-a1-6vZ" secondAttribute="trailingMargin" id="S6L-xx-3XS"/>
+                                        <constraint firstItem="6bB-Dn-AP6" firstAttribute="top" secondItem="OKd-a1-6vZ" secondAttribute="topMargin" id="sgQ-ZI-433"/>
+                                        <constraint firstItem="6bB-Dn-AP6" firstAttribute="leading" secondItem="OKd-a1-6vZ" secondAttribute="leadingMargin" id="yTl-57-go2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="date" destination="FNz-Dn-UdX" id="HTi-hN-734"/>
+                                    <outlet property="name" destination="6bB-Dn-AP6" id="r0E-8x-4xf"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="uK0-sN-fbn" id="Uxj-Y4-zTr"/>
@@ -147,7 +181,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5i5-Ou-QTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118" y="-1415"/>
+            <point key="canvasLocation" x="1117.5" y="-1415.4929577464789"/>
         </scene>
         <!--Bill Breakdown-->
         <scene sceneID="tag-zw-gob">
