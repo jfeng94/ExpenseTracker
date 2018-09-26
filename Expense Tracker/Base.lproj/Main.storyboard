@@ -117,6 +117,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f9d-T7-lPa">
+                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -143,13 +144,13 @@
         <!--Bill Split-->
         <scene sceneID="AAC-TL-U8i">
             <objects>
-                <tableViewController title="Bill Split" id="uK0-sN-fbn" customClass="BillSplitTableViewController" customModule="Expense_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Bill Split" id="uK0-sN-fbn" customClass="BillSplitTableViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IXn-bD-Ib9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sharerCell" rowHeight="60" id="2SP-fy-cPB" userLabel="Sharer Cell" customClass="ItemSharerTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sharerCell" rowHeight="60" id="2SP-fy-cPB" userLabel="Sharer Cell" customClass="ItemSharerTableViewCell" customModule="Cleaver" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2SP-fy-cPB" id="NGN-1y-qdO">
@@ -242,13 +243,13 @@
         <!--Bill Breakdown-->
         <scene sceneID="tag-zw-gob">
             <objects>
-                <tableViewController id="G1C-Pz-PeX" userLabel="Bill Breakdown" customClass="BillSplitBreakdownTableViewController" customModule="Expense_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="G1C-Pz-PeX" userLabel="Bill Breakdown" customClass="BillSplitBreakdownTableViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UG1-kl-HRs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="60" id="KPL-Dv-ACV" userLabel="ItemCell" customClass="BillSplitItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="60" id="KPL-Dv-ACV" userLabel="ItemCell" customClass="BillSplitItemTableViewCell" customModule="Cleaver" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KPL-Dv-ACV" id="a6K-ZG-hYe">
@@ -305,7 +306,7 @@
         <!--Vendor Details-->
         <scene sceneID="nM5-Fe-p9I">
             <objects>
-                <viewController title="Vendor Details" id="jbi-yW-wLq" customClass="ReceiptVendorDetailsViewController" customModule="Expense_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Vendor Details" id="jbi-yW-wLq" customClass="ReceiptVendorDetailsViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="15O-ws-R9d">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -314,7 +315,7 @@
                                 <rect key="frame" x="16" y="75" width="288" height="37"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="September 19, 2018, 4:20PM" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XCN-Ux-txv">
                                 <rect key="frame" x="16" y="111" width="288" height="30"/>
@@ -389,13 +390,13 @@
         <!--Receipt View Controller-->
         <scene sceneID="T2Z-TA-LaD">
             <objects>
-                <tableViewController id="hge-QN-kvu" userLabel="Receipt View Controller" customClass="ReceiptTableViewController" customModule="Expense_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="hge-QN-kvu" userLabel="Receipt View Controller" customClass="ReceiptTableViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="26" sectionFooterHeight="28" id="kQA-az-XS4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="vendorCell" rowHeight="100" id="mpP-uz-cPn" customClass="VendorTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="vendorCell" rowHeight="100" id="mpP-uz-cPn" customClass="VendorTableViewCell" customModule="Cleaver" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="26" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mpP-uz-cPn" id="ZD9-D3-an3">
@@ -479,7 +480,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="60" id="rK0-lm-mhd" customClass="ItemTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="60" id="rK0-lm-mhd" customClass="ItemTableViewCell" customModule="Cleaver" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="214" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rK0-lm-mhd" id="3XR-bK-Wl5">
@@ -543,13 +544,13 @@
         <!--Item View Controller-->
         <scene sceneID="be4-53-eHF">
             <objects>
-                <tableViewController title="Item Details" id="Cgr-2d-UE5" userLabel="Item View Controller" customClass="ItemTableViewController" customModule="Expense_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Item Details" id="Cgr-2d-UE5" userLabel="Item View Controller" customClass="ItemTableViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qhO-SJ-hlu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemDetailsCell" rowHeight="165" id="QvA-x6-DWv" userLabel="Item Details Cell" customClass="ItemDetailsTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemDetailsCell" rowHeight="165" id="QvA-x6-DWv" userLabel="Item Details Cell" customClass="ItemDetailsTableViewCell" customModule="Cleaver" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="165"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QvA-x6-DWv" id="SFf-cG-UTK">
@@ -676,7 +677,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Buys" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MKI-eY-gLF">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Buyers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MKI-eY-gLF">
                                             <rect key="frame" x="16" y="0.0" width="288" height="25"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -686,7 +687,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="itemSharerCell" rowHeight="90" id="GtP-Yj-2mF" userLabel="Item Sharer Cell" customClass="ItemSharerTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="itemSharerCell" rowHeight="90" id="GtP-Yj-2mF" userLabel="Item Sharer Cell" customClass="ItemSharerTableViewCell" customModule="Cleaver" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="218" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GtP-Yj-2mF" id="w61-J7-uwD">
@@ -797,7 +798,7 @@
         <!--Person Selection View Controller-->
         <scene sceneID="gJb-zI-Ux0">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="pXc-yw-h44" customClass="PersonSelectionViewController" customModule="Expense_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="pXc-yw-h44" customClass="PersonSelectionViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VUL-EQ-nBi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -806,7 +807,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personCell" rowHeight="60" id="LYe-DK-nZX" userLabel="Person Cell" customClass="PersonTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personCell" rowHeight="60" id="LYe-DK-nZX" userLabel="Person Cell" customClass="PersonTableViewCell" customModule="Cleaver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LYe-DK-nZX" id="TEp-6q-AqO">
@@ -863,7 +864,7 @@
         <!--Item Details Controller-->
         <scene sceneID="aTC-yD-jEu">
             <objects>
-                <viewController title="Edit Item" id="t5P-B2-35Y" userLabel="Item Details Controller" customClass="ItemDetailsViewController" customModule="Expense_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Edit Item" id="t5P-B2-35Y" userLabel="Item Details Controller" customClass="ItemDetailsViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q1q-p0-OHU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -994,13 +995,13 @@
         <!--New Item-->
         <scene sceneID="t9i-gO-1uT">
             <objects>
-                <tableViewController title="New Item" id="zY2-0n-BSA" customClass="NewItemViewController" customModule="Expense_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fSG-2B-U5r">
+                <tableViewController title="New Item" id="zY2-0n-BSA" customClass="NewItemViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fSG-2B-U5r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="detailsCell" rowHeight="268" id="AtG-Y2-EXO" userLabel="Details Cell" customClass="NewItemDetailsTableViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="detailsCell" rowHeight="268" id="AtG-Y2-EXO" userLabel="Details Cell" customClass="NewItemDetailsTableViewCell" customModule="Cleaver" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="268"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AtG-Y2-EXO" id="220-Dm-n1m">
@@ -1138,7 +1139,7 @@
                                     <outlet property="tip" destination="JcR-AT-D8o" id="VO3-Qp-a4m"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="sharerCell" rowHeight="90" id="jDF-Eh-Fhb" userLabel="Item Sharer Cell" customClass="NewItemSharerViewCell" customModule="Expense_Tracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="sharerCell" rowHeight="90" id="jDF-Eh-Fhb" userLabel="Item Sharer Cell" customClass="NewItemSharerViewCell" customModule="Cleaver" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="296" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jDF-Eh-Fhb" id="ZJ7-2J-MhD">
@@ -1317,7 +1318,7 @@
                                 <rect key="frame" x="16" y="75" width="288" height="37"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="September 19, 2018, 4:20PM" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JSr-8a-w6x">
                                 <rect key="frame" x="16" y="111" width="288" height="30"/>

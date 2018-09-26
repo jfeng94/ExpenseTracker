@@ -77,6 +77,14 @@ class ReceiptVendorDetailsViewController: UIViewController, UITextFieldDelegate 
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (receipt != nil) {
+            refreshReceipt()
+            
+            refreshFields()
+        }
+    }
+    
+    func refreshReceipt() {
+        if (receipt != nil) {
             if let s = vendorName.text {
                 receipt.vendorName = s
             }
@@ -100,8 +108,6 @@ class ReceiptVendorDetailsViewController: UIViewController, UITextFieldDelegate 
                     receipt.SetGlobalTip(Float(0))
                 }
             }
-            
-            refreshFields();
         }
     }
     

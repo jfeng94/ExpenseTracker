@@ -87,7 +87,7 @@ class Receipt {
     func GetGlobalTax() -> Float? {
         if (items.count > 0) {
             let tax = items[0].tax
-            for i in 1...(items.count - 1) {
+            for i in 1..<items.count {
                 if tax != items[i].tax {
                     return nil
                 }
@@ -111,7 +111,7 @@ class Receipt {
     func GetGlobalTip() -> Float? {
         if (items.count > 0) {
             let tip = items[0].tip
-            for i in 1...(items.count - 1) {
+            for i in 1..<items.count {
                 if tip != items[i].tip {
                     return nil
                 }

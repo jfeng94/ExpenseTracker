@@ -15,6 +15,10 @@ class NewReceiptViewController: ReceiptVendorDetailsViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        vendorName.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
+        
+        refreshFields()
         updateSaveButton()
         
     }
@@ -35,7 +39,6 @@ class NewReceiptViewController: ReceiptVendorDetailsViewController {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        refreshFields()
         updateSaveButton()
     }
     
@@ -59,6 +62,7 @@ class NewReceiptViewController: ReceiptVendorDetailsViewController {
         
         switch(segue.identifier ?? "") {
         case "receiptSaved":
+            refreshReceipt()
             controller.addReceipt(receipt)
             
         default:

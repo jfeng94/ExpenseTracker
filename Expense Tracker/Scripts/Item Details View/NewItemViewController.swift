@@ -225,6 +225,8 @@ class NewItemViewController: UITableViewController {
     }
     
     func reloadData() {
+        let offset = tableView.contentOffset.y;
         tableView.reloadData()
+        tableView.setContentOffset(CGPoint.init(x: 0, y: offset), animated: false)
     }
 }
