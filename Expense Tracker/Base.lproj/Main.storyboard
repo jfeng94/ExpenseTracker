@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Root Tab Navigation Controller-->
         <scene sceneID="D5X-6F-cQ0">
             <objects>
-                <tabBarController id="CdW-2A-9Bd" sceneMemberID="viewController">
+                <tabBarController title="Image Viewer" id="CdW-2A-9Bd" userLabel="Root Tab Navigation Controller" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WOA-Um-S7C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -23,6 +23,7 @@
                     <connections>
                         <segue destination="vtj-ql-a3p" kind="relationship" relationship="viewControllers" id="94m-1I-Rsz"/>
                         <segue destination="DaP-xQ-zPn" kind="relationship" relationship="viewControllers" id="vGI-Iq-rHv"/>
+                        <segue destination="bQU-rd-bgg" kind="relationship" relationship="viewControllers" id="olo-k0-SDK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRo-KJ-j6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -56,7 +57,23 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Syz-F6-AdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1384" y="1058"/>
+            <point key="canvasLocation" x="-1620" y="979"/>
+        </scene>
+        <!--Image Picker-->
+        <scene sceneID="mJB-Sa-d2g">
+            <objects>
+                <viewController id="jf1-8g-pmp" userLabel="Image Picker" customClass="ImagePickerViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xut-4T-eA1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Kxl-dq-TeV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fo5-bU-06z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDJ-do-caq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-848" y="1631"/>
         </scene>
         <!--History-->
         <scene sceneID="jYO-VQ-j31">
@@ -317,10 +334,10 @@
             </objects>
             <point key="canvasLocation" x="2207" y="-1540"/>
         </scene>
-        <!--Vendor Details-->
+        <!--Edit Vendor Details-->
         <scene sceneID="nM5-Fe-p9I">
             <objects>
-                <viewController title="Vendor Details" id="jbi-yW-wLq" customClass="ReceiptVendorDetailsViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Vendor Details" id="jbi-yW-wLq" userLabel="Edit Vendor Details" customClass="ReceiptVendorDetailsViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="15O-ws-R9d">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -401,10 +418,10 @@
             </objects>
             <point key="canvasLocation" x="1959" y="107"/>
         </scene>
-        <!--Receipt View Controller-->
+        <!--Edit Receipt Contents-->
         <scene sceneID="T2Z-TA-LaD">
             <objects>
-                <tableViewController id="hge-QN-kvu" userLabel="Receipt View Controller" customClass="ReceiptTableViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="hge-QN-kvu" userLabel="Edit Receipt Contents" customClass="ReceiptTableViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="26" sectionFooterHeight="28" id="kQA-az-XS4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -555,10 +572,10 @@
             </objects>
             <point key="canvasLocation" x="1117.5" y="-730.9859154929577"/>
         </scene>
-        <!--Item View Controller-->
+        <!--Edit Item Sharers-->
         <scene sceneID="be4-53-eHF">
             <objects>
-                <tableViewController title="Item Details" id="Cgr-2d-UE5" userLabel="Item View Controller" customClass="ItemTableViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Item Details" id="Cgr-2d-UE5" userLabel="Edit Item Sharers" customClass="ItemTableViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qhO-SJ-hlu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -809,10 +826,10 @@
             </objects>
             <point key="canvasLocation" x="2207" y="-731"/>
         </scene>
-        <!--Person Selection View Controller-->
+        <!--Person Selection-->
         <scene sceneID="gJb-zI-Ux0">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="pXc-yw-h44" customClass="PersonSelectionViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="pXc-yw-h44" userLabel="Person Selection" customClass="PersonSelectionViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VUL-EQ-nBi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -869,16 +886,36 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="j4Q-vk-TKW" id="t8m-w6-Ja5"/>
+                        <segue destination="6fF-Dg-NNj" kind="presentation" identifier="createNewPerson" id="FVm-cm-Ggl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4JL-Nq-lwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2779" y="538"/>
+            <point key="canvasLocation" x="3064" y="454"/>
         </scene>
-        <!--Item Details Controller-->
+        <!--New Person-->
+        <scene sceneID="B9g-aO-zgb">
+            <objects>
+                <viewController title="New Person" id="Z2c-AA-TJk" customClass="NewPersonViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t3V-Ot-z3z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="O2k-oh-SPU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Person" id="9Tk-d0-d6y">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0z0-Px-2ms"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5cZ-Gf-aWX"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RUs-yC-lLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5116.875" y="452.11267605633805"/>
+        </scene>
+        <!--Item Details-->
         <scene sceneID="aTC-yD-jEu">
             <objects>
-                <viewController title="Edit Item" id="t5P-B2-35Y" userLabel="Item Details Controller" customClass="ItemDetailsViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Edit Item" id="t5P-B2-35Y" userLabel="Item Details" customClass="ItemDetailsViewController" customModule="Cleaver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q1q-p0-OHU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -989,10 +1026,10 @@
             </objects>
             <point key="canvasLocation" x="3210" y="-731"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Receipt Root Navigation Controller-->
         <scene sceneID="QRF-bG-SUa">
             <objects>
-                <navigationController id="vtj-ql-a3p" userLabel="Navigation Controller" sceneMemberID="viewController">
+                <navigationController id="vtj-ql-a3p" userLabel="Receipt Root Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="History" image="history" id="hVU-yE-O9m"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P9Z-in-cBu">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -1300,7 +1337,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sO-8Q-Ok3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0ps-BA-xG7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1118" y="951"/>
+            <point key="canvasLocation" x="1118" y="926"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Xd-2i-Y9h">
@@ -1416,7 +1453,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbL-gS-0ZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="F3z-Ri-0Yw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="360" y="951"/>
+            <point key="canvasLocation" x="360" y="927"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SUP-Ch-z1V">
@@ -1436,6 +1473,43 @@
             </objects>
             <point key="canvasLocation" x="360" y="107"/>
         </scene>
+        <!--TEst-->
+        <scene sceneID="QBO-bZ-JpY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bQU-rd-bgg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="TEst" image="contacts" id="Pfd-Dc-uhk"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jd7-qx-flD">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jf1-8g-pmp" kind="relationship" relationship="rootViewController" id="uqq-65-Hku"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2dd-S9-Mt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-847.5" y="823.94366197183103"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VJm-Oc-l5Q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6fF-Dg-NNj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ueN-b0-JiT">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Z2c-AA-TJk" kind="relationship" relationship="rootViewController" id="nuy-YI-hT9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yWg-Rf-Q2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4119.375" y="452.11267605633805"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Down Chevron" width="25" height="12"/>
@@ -1445,7 +1519,7 @@
         <image name="history" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LMG-KL-Vdm"/>
+        <segue reference="aOQ-YZ-Pq8"/>
         <segue reference="S2j-Zw-XWW"/>
         <segue reference="icm-Nv-CDm"/>
         <segue reference="o6j-EK-LCe"/>

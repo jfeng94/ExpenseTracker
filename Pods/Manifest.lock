@@ -1,0 +1,16 @@
+PODS:
+  - RSKImageCropperSwift (1.5.1.swift3)
+
+DEPENDENCIES:
+  - RSKImageCropperSwift (= 1.5.1.swift3)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - RSKImageCropperSwift
+
+SPEC CHECKSUMS:
+  RSKImageCropperSwift: 76afd3df5450ed41e23c70d58400f1adc7f17730
+
+PODFILE CHECKSUM: 1a670c127de61cbff49816e40c17744e676c1c1f
+
+COCOAPODS: 1.5.2

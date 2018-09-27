@@ -57,6 +57,10 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
         if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
             self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
         }
+        
+        let plus = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(self.onPlusTapped))
+        self.navigationItem.rightBarButtonItem = plus
+        
         super.viewWillAppear(animated)
     }
     
@@ -65,6 +69,10 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
     }
     
     // MARK: - Private instance methods
+    @objc func onPlusTapped() {
+        performSegue(withIdentifier: "createNewPerson", sender: self)
+    }
+    
     
     func searchBarIsEmpty() -> Bool {
         // Returns true if the text is empty or nil

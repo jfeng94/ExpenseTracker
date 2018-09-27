@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1469F83D1CC1C3E21058B731 /* Pods_CleaverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85124FA7B2BC3960016B6603 /* Pods_CleaverTests.framework */; };
+		7F917391DDF19119F77714D9 /* Pods_Cleaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF9C53F5C4515DB521F8D52 /* Pods_Cleaver.framework */; };
 		A1098C6D215854B20081FAD8 /* PersonSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1098C6C215854B20081FAD8 /* PersonSelectionViewController.swift */; };
 		A1098C6F215859D40081FAD8 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1098C6E215859D40081FAD8 /* PersonTableViewCell.swift */; };
 		A1208C3A2153064400D9D39D /* BillSplitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1208C392153064400D9D39D /* BillSplitTableViewController.swift */; };
@@ -33,6 +35,8 @@
 		A1CF187A2155B5B9003A641E /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */; };
 		A1CF187E2155D653003A641E /* BillSplitBreakdownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */; };
 		A1CF18802155D9AD003A641E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF187F2155D9AD003A641E /* Util.swift */; };
+		A1DC2BBB215CFA0B00D2B969 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC2BBA215CFA0B00D2B969 /* ImagePickerViewController.swift */; };
+		A1DC2BBE215D0E5E00D2B969 /* NewPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC2BBD215D0E5E00D2B969 /* NewPersonViewController.swift */; };
 		A1DC36F1214E304700E34BB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC36F0214E304700E34BB6 /* AppDelegate.swift */; };
 		A1DC36F5214E304700E34BB6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC36F4214E304700E34BB6 /* SecondViewController.swift */; };
 		A1DC36F8214E304700E34BB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DC36F6214E304700E34BB6 /* Main.storyboard */; };
@@ -52,6 +56,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4EF6A9A8D18B8ECEC8FE8E8A /* Pods-Cleaver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cleaver/Pods-Cleaver.debug.xcconfig"; sourceTree = "<group>"; };
+		4FF9C53F5C4515DB521F8D52 /* Pods_Cleaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cleaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E0794254982975FEF4F0651 /* Pods-CleaverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleaverTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleaverTests/Pods-CleaverTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7FBDD4662FF6544FE1EDD833 /* Pods-Cleaver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cleaver.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cleaver/Pods-Cleaver.release.xcconfig"; sourceTree = "<group>"; };
+		85124FA7B2BC3960016B6603 /* Pods_CleaverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleaverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1098C6C215854B20081FAD8 /* PersonSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSelectionViewController.swift; sourceTree = "<group>"; };
 		A1098C6E215859D40081FAD8 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		A1208C392153064400D9D39D /* BillSplitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitTableViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +87,8 @@
 		A1CF18792155B5B9003A641E /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		A1CF187D2155D653003A641E /* BillSplitBreakdownTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitBreakdownTableViewController.swift; sourceTree = "<group>"; };
 		A1CF187F2155D9AD003A641E /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Scripts/Util.swift; sourceTree = "<group>"; };
+		A1DC2BBA215CFA0B00D2B969 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		A1DC2BBD215D0E5E00D2B969 /* NewPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonViewController.swift; sourceTree = "<group>"; };
 		A1DC36ED214E304700E34BB6 /* Cleaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC36F0214E304700E34BB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DC36F4214E304700E34BB6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +99,7 @@
 		A1DC3703214E304B00E34BB6 /* CleaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleaverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DC3707214E304B00E34BB6 /* Expense_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense_TrackerTests.swift; sourceTree = "<group>"; };
 		A1DC3709214E304B00E34BB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD6671CF6A26AD024E9E7AF6 /* Pods-CleaverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleaverTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleaverTests/Pods-CleaverTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F917391DDF19119F77714D9 /* Pods_Cleaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1469F83D1CC1C3E21058B731 /* Pods_CleaverTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +226,8 @@
 		A1CF187B2155B5CF003A641E /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				A1DC2BBC215D0E3A00D2B969 /* New Person View */,
+				A1DC2BB9215CF9F100D2B969 /* Image Picker View */,
 				A1C9176F215B806B00759763 /* Receipt History View */,
 				A1B21B2521591B46001E921A /* Edit Sharer View */,
 				A1098C6B215854870081FAD8 /* Person Selection View */,
@@ -236,12 +252,30 @@
 			path = "Bill Split Breakdown View";
 			sourceTree = "<group>";
 		};
+		A1DC2BB9215CF9F100D2B969 /* Image Picker View */ = {
+			isa = PBXGroup;
+			children = (
+				A1DC2BBA215CFA0B00D2B969 /* ImagePickerViewController.swift */,
+			);
+			path = "Image Picker View";
+			sourceTree = "<group>";
+		};
+		A1DC2BBC215D0E3A00D2B969 /* New Person View */ = {
+			isa = PBXGroup;
+			children = (
+				A1DC2BBD215D0E5E00D2B969 /* NewPersonViewController.swift */,
+			);
+			path = "New Person View";
+			sourceTree = "<group>";
+		};
 		A1DC36E4214E304700E34BB6 = {
 			isa = PBXGroup;
 			children = (
 				A1DC36EF214E304700E34BB6 /* Expense Tracker */,
 				A1DC3706214E304B00E34BB6 /* Expense TrackerTests */,
 				A1DC36EE214E304700E34BB6 /* Products */,
+				B77D3078A19D2F1D1ABB6CA2 /* Pods */,
+				E163F40950C502B23A6C5A18 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,6 +312,26 @@
 			path = "Expense TrackerTests";
 			sourceTree = "<group>";
 		};
+		B77D3078A19D2F1D1ABB6CA2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4EF6A9A8D18B8ECEC8FE8E8A /* Pods-Cleaver.debug.xcconfig */,
+				7FBDD4662FF6544FE1EDD833 /* Pods-Cleaver.release.xcconfig */,
+				7E0794254982975FEF4F0651 /* Pods-CleaverTests.debug.xcconfig */,
+				AD6671CF6A26AD024E9E7AF6 /* Pods-CleaverTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E163F40950C502B23A6C5A18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FF9C53F5C4515DB521F8D52 /* Pods_Cleaver.framework */,
+				85124FA7B2BC3960016B6603 /* Pods_CleaverTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,9 +339,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1DC370C214E304B00E34BB6 /* Build configuration list for PBXNativeTarget "Cleaver" */;
 			buildPhases = (
+				70F9B7B2DBEDAF209B4B71F0 /* [CP] Check Pods Manifest.lock */,
 				A1DC36E9214E304700E34BB6 /* Sources */,
 				A1DC36EA214E304700E34BB6 /* Frameworks */,
 				A1DC36EB214E304700E34BB6 /* Resources */,
+				306B7EC2C4B1AE57DED505E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,6 +358,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1DC370F214E304B00E34BB6 /* Build configuration list for PBXNativeTarget "CleaverTests" */;
 			buildPhases = (
+				1A82989FBBDFAF771BE95957 /* [CP] Check Pods Manifest.lock */,
 				A1DC36FF214E304B00E34BB6 /* Sources */,
 				A1DC3700214E304B00E34BB6 /* Frameworks */,
 				A1DC3701214E304B00E34BB6 /* Resources */,
@@ -374,11 +431,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A82989FBBDFAF771BE95957 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CleaverTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		306B7EC2C4B1AE57DED505E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Cleaver/Pods-Cleaver-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RSKImageCropperSwift/RSKImageCropperSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropperSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cleaver/Pods-Cleaver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70F9B7B2DBEDAF209B4B71F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cleaver-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A1DC36E9214E304700E34BB6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1DC2BBE215D0E5E00D2B969 /* NewPersonViewController.swift in Sources */,
 				A1C91773215BA7F000759763 /* ReceiptTableViewCell.swift in Sources */,
 				A1098C6F215859D40081FAD8 /* PersonTableViewCell.swift in Sources */,
 				A1AD44E62151764B003CDE81 /* Receipt.swift in Sources */,
@@ -389,6 +504,7 @@
 				A1C9176E215B770200759763 /* ReceiptInfoTableViewCell.swift in Sources */,
 				A1208C3D21541D4700D9D39D /* ReceiptVendorDetailsViewController.swift in Sources */,
 				A1208C3A2153064400D9D39D /* BillSplitTableViewController.swift in Sources */,
+				A1DC2BBB215CFA0B00D2B969 /* ImagePickerViewController.swift in Sources */,
 				A1C91775215BB9FD00759763 /* NewReceiptViewController.swift in Sources */,
 				A1C62F61215A110C0089F23E /* BillSplitItemTableViewCell.swift in Sources */,
 				A1DC36F5214E304700E34BB6 /* SecondViewController.swift in Sources */,
@@ -564,6 +680,7 @@
 		};
 		A1DC370D214E304B00E34BB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EF6A9A8D18B8ECEC8FE8E8A /* Pods-Cleaver.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -583,6 +700,7 @@
 		};
 		A1DC370E214E304B00E34BB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FBDD4662FF6544FE1EDD833 /* Pods-Cleaver.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -602,6 +720,7 @@
 		};
 		A1DC3710214E304B00E34BB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E0794254982975FEF4F0651 /* Pods-CleaverTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -622,6 +741,7 @@
 		};
 		A1DC3711214E304B00E34BB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD6671CF6A26AD024E9E7AF6 /* Pods-CleaverTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
