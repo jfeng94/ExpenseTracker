@@ -16,7 +16,28 @@ class NewPersonViewController: UIViewController, RSKImageCropViewControllerDeleg
     var photoFrameView = UIView()
     var addPhotoButton = UIButton()
     var name = UITextField()
+    var saveButton: UIBarButtonItem?
+    var cancelButton: UIBarButtonItem?
     var didSetupConstraints = false
+    
+    var orientation = UIImageOrientation.up
+    var croppedImage: UIImage?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        
+        // ---------------------------
+        // Save Button set up
+        // ---------------------------
+        saveButton = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(self.save))
+        self.navigationItem.rightBarButtonItem = saveButton
+        
+        // ---------------------------
+        // Cancel Button set up
+        // ---------------------------
+        cancelButton = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancel))
+        self.navigationItem.leftBarButtonItem = cancelButton
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -24,10 +45,11 @@ class NewPersonViewController: UIViewController, RSKImageCropViewControllerDeleg
         
         edgesForExtendedLayout = []
         
+        croppedImage = UIImage(named: "Void User")
+        
         // ---------------------------
         // Add the frame of the photo.
         // ---------------------------
-        
         photoFrameView.backgroundColor = UIColor(red: 182/255.0, green: 182/255.0, blue: 187/255.0, alpha: 1.0)
         photoFrameView.translatesAutoresizingMaskIntoConstraints = false
         photoFrameView.layer.masksToBounds = true
@@ -50,12 +72,20 @@ class NewPersonViewController: UIViewController, RSKImageCropViewControllerDeleg
         addPhotoButton.addTarget(self, action: #selector(onAddPhotoButtonTouch), for: .touchUpInside)
         view.addSubview(addPhotoButton)
         
-        //
+        // ---------------------------
+        // Name Field
+        // ---------------------------
         name.translatesAutoresizingMaskIntoConstraints = false
         name.textAlignment = .center
         name.borderStyle = .none
         name.placeholder = "Name"
+        name.font = name.font?.withSize(27)
         view.addSubview(name)
+        
+        // ---------------------------
+        //
+        // ---------------------------
+        
         
         // ----------------
         // Add constraints.
@@ -217,7 +247,10 @@ class NewPersonViewController: UIViewController, RSKImageCropViewControllerDeleg
         didSetupConstraints = true
     }
     
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - Action handling
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @objc func onAddPhotoButtonTouch(sender: UIButton) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary
@@ -226,6 +259,20 @@ class NewPersonViewController: UIViewController, RSKImageCropViewControllerDeleg
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    @objc func cancel(sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func save(sender: UIBarButtonItem) {
+        let newPersonID = PersonManager.instance.CreateNewPerson()
+        PersonManager.instance.SetName(ID: newPersonID, name: name.text!)
+        PersonManager.instance.SetPhoto(ID: newPersonID, photo: croppedImage)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: UIImagePickerDelegate methods
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
         dismiss(animated: true, completion: nil)
@@ -241,24 +288,47 @@ class NewPersonViewController: UIViewController, RSKImageCropViewControllerDeleg
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
         
+        orientation = selectedImage.imageOrientation
+        
         let photo = selectedImage
         let imageCropVC = RSKImageCropViewController(image: photo, cropMode: .circle)
         imageCropVC.delegate = self
         navigationController?.pushViewController(imageCropVC, animated: true)
     }
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: - RSKImageCropViewControllerDelegate
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     func didCancelCrop() {
         let _ = navigationController?.popViewController(animated: true)
     }
     
     func didCropImage(_ croppedImage: UIImage, usingCropRect cropRect: CGRect) {
         addPhotoButton.setImage(croppedImage, for: .normal)
+        self.croppedImage = croppedImage
         let _ = navigationController?.popViewController(animated: true)
     }
     
     func didCropImage(_ croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
-        addPhotoButton.setImage(croppedImage, for: .normal)
+        let rotated : UIImage
+        switch (orientation) {
+        case .up:
+            print("case is up. Did nothing")
+            rotated = croppedImage
+        case .right:
+            rotated = croppedImage.rotate(radians: Float.pi / 2)!
+        case.down:
+            rotated = croppedImage.rotate(radians: Float.pi)!
+        case.left:
+            rotated = croppedImage.rotate(radians: 3 * Float.pi / 2)!
+        
+        default:
+            rotated = croppedImage
+            print("Case not handled")
+        
+        }
+        addPhotoButton.setImage(rotated, for: .normal)
+        self.croppedImage = rotated
         let _ = navigationController?.popViewController(animated: true)
     }
     

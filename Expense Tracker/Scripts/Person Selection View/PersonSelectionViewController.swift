@@ -40,11 +40,8 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
         tableView.dataSource = self
         definesPresentationContext = true
 
-        
-        
         tableView.setContentOffset(CGPoint.init(x: 0, y: searchController.searchBar.frame.size.height), animated: false)
     
-        people = PersonManager.instance.GetPeople(excluding: excludedPeople)
 
 //        if let splitViewController = splitViewController {
 //            let controllers = splitViewController.viewControllers
@@ -54,6 +51,8 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        people = PersonManager.instance.GetPeople(excluding: excludedPeople)
+        
         if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
             self.tableView.deselectRow(at: selectionIndexPath, animated: animated)
         }
@@ -62,6 +61,8 @@ class PersonSelectionViewController: UIViewController, UITableViewDataSource, UI
         self.navigationItem.rightBarButtonItem = plus
         
         super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {

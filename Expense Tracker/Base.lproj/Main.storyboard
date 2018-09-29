@@ -206,6 +206,12 @@
                                                 <constraint firstAttribute="height" constant="40" id="73Q-Je-ebY"/>
                                                 <constraint firstAttribute="width" constant="40" id="CLV-qO-1tX"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -775,6 +781,12 @@
                                                 <constraint firstAttribute="width" constant="40" id="7FY-lK-i9B"/>
                                                 <constraint firstAttribute="height" constant="40" id="vD6-08-pPN"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -835,7 +847,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j4Q-vk-TKW">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personCell" rowHeight="60" id="LYe-DK-nZX" userLabel="Person Cell" customClass="PersonTableViewCell" customModule="Cleaver" customModuleProvider="target">
@@ -857,6 +869,12 @@
                                                         <constraint firstAttribute="height" constant="40" id="BRg-GK-Dto"/>
                                                         <constraint firstAttribute="width" constant="40" id="iEs-OV-Sz9"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -903,10 +921,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="O2k-oh-SPU"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add New Person" id="9Tk-d0-d6y">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0z0-Px-2ms"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5cZ-Gf-aWX"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add New Person" id="9Tk-d0-d6y"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUs-yC-lLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1520,7 +1535,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aOQ-YZ-Pq8"/>
-        <segue reference="S2j-Zw-XWW"/>
+        <segue reference="Vs1-lH-khT"/>
         <segue reference="icm-Nv-CDm"/>
         <segue reference="o6j-EK-LCe"/>
     </inferredMetricsTieBreakers>
